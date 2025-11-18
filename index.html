@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>김창완 포트폴리오</title>
+    <title>김창완 - 포트폴리오</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,47 +22,76 @@
 
         .container {
             text-align: center;
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 80px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
         }
 
-        .profile-image {
+        .profile-img {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
             font-size: 4rem;
+            color: #333;
+            margin-bottom: 30px;
             font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+            letter-spacing: -2px;
         }
 
         p {
-            font-size: 1.2rem;
-            color: #6c757d;
-            font-weight: 400;
-            line-height: 1.6;
+            font-size: 1.3rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 25px auto;
+            border-radius: 2px;
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+            }
+            
             h1 {
                 font-size: 2.5rem;
             }
+            
             p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="images/profile.jpg" alt="김창완 프로필 사진" class="profile-image">
+        <img src="images/profile.jpg" alt="김창완 프로필 사진" class="profile-img">
         <h1>김창완</h1>
+        <div class="divider"></div>
         <p>창완이의 포트폴리오 웹사이트에 오신 것을 환영합니다</p>
     </div>
 </body>
