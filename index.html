@@ -93,6 +93,7 @@
         .hero {
             position: relative;
             height: 100vh;
+            width: 100%; /* 전체 폭 사용 */
             padding: 0 5vw;
             display: flex;
             align-items: center;
@@ -104,8 +105,9 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.1), transparent 55%),
-                        linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+            background:
+                radial-gradient(circle at 20% 0%, rgba(255,255,255,0.1), transparent 55%),
+                linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.9));
             z-index: 0;
         }
 
@@ -206,15 +208,15 @@
         }
 
         /* ============================================
-           섹션 공통 스타일
+           섹션 공통 스타일 (히어로 제외)
         ============================================ */
-        section {
+        section:not(.hero) {
             padding: 100px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        section h2 {
+        section:not(.hero) h2 {
             font-size: 48px;
             font-weight: 700;
             margin-bottom: 60px;
@@ -491,11 +493,11 @@
                 font-size: 14px;
             }
 
-            section {
+            section:not(.hero) {
                 padding: 80px 20px;
             }
 
-            section h2 {
+            section:not(.hero) h2 {
                 font-size: 40px;
                 margin-bottom: 50px;
             }
@@ -544,11 +546,11 @@
                 align-items: flex-start;
             }
 
-            section {
+            section:not(.hero) {
                 padding: 60px 20px;
             }
 
-            section h2 {
+            section:not(.hero) h2 {
                 font-size: 32px;
                 margin-bottom: 40px;
             }
@@ -756,7 +758,7 @@
                 </div>
             </div>
 
-            <!-- 프로젝트 4 (placeholder) -->
+            <!-- 프로젝트 4 -->
             <div class="project-card">
                 <div class="project-image-wrapper">
                     <img src="images/project4.jpg" alt="크리에이티브 피트" class="project-image">
@@ -769,12 +771,11 @@
                     <div class="project-tech">illustration(Adobe), stable diffusion online</div>
                 </div>
             </div>
-        </div>
 
-            <!-- 프로젝트 5 (placeholder) -->
+            <!-- 프로젝트 5 -->
             <div class="project-card">
                 <div class="project-image-wrapper">
-                    <img src="images/project5.jpg" alt="크리에이티브 피트" class="project-image">
+                    <img src="images/project5.jpg" alt="일러스트레이스 캐릭터" class="project-image">
                 </div>
                 <div class="project-content">
                     <h3>일러스트레이스 대표 캐릭터 설명</h3>
@@ -785,17 +786,16 @@
                     <div class="project-tech">illustration(Adobe), stable diffusion online</div>
                 </div>
             </div>
-        </div>
 
-            <!-- 프로젝트 6 (placeholder) -->
+            <!-- 프로젝트 6 -->
             <div class="project-card">
                 <div class="project-image-wrapper">
-                    <img src="images/project6.jpg" alt="크리에이티브 피트" class="project-image">
+                    <img src="images/project6.jpg" alt="ILLUSTRACE PIT CREW" class="project-image">
                 </div>
                 <div class="project-content">
                     <h3>ILLUSTRACE PIT CREW: 2D의 세계를 넘어선 3D 팀 포트레이트</h3>
                     <p>
-                        “ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트입니다. 
+                        ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트입니다. 
                         기존 작업보다 세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장된 비주얼입니다.
                     </p>
                     <div class="project-tech">illustration(Adobe), stable diffusion online</div>
