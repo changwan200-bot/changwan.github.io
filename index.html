@@ -93,12 +93,13 @@
         .hero {
             position: relative;
             height: 100vh;
-            width: 100%; /* 전체 폭 사용 */
+            width: 100%;
             padding: 0 5vw;
             display: flex;
             align-items: center;
             color: #FFFFFF;
-            background: #000000 url('images/hero-main.jpg') center center / cover no-repeat fixed;
+            /* 1. 무드 이미지: project2 사용 */
+            background: #000000 url('images/project2.jpg') center center / cover no-repeat fixed;
         }
 
         .hero::before {
@@ -106,23 +107,23 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 0%, rgba(255,255,255,0.1), transparent 55%),
-                linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+                radial-gradient(circle at 20% 0%, rgba(255,255,255,0.12), transparent 55%),
+                linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5), rgba(0,0,0,0.96));
             z-index: 0;
         }
 
         .hero-inner {
             position: relative;
             z-index: 1;
-            max-width: 720px;
+            max-width: 840px; /* 텍스트 블록을 더 넓게 */
         }
 
         .hero-tag {
-            font-size: 14px;
-            letter-spacing: 4px;
+            font-size: 16px;           /* 폰트 키움 */
+            letter-spacing: 5px;
             text-transform: uppercase;
-            opacity: 0.7;
-            margin-bottom: 14px;
+            opacity: 0.8;
+            margin-bottom: 18px;
         }
 
         .hero-tag strong {
@@ -130,48 +131,52 @@
         }
 
         .hero-title-main {
-            font-size: 46px;
-            line-height: 1.15;
-            font-weight: 700;
+            font-size: 56px;           /* 메인 타이틀 크게 */
+            line-height: 1.2;
+            font-weight: 800;
             letter-spacing: -1px;
-            margin-bottom: 15px;
-        }
-
-        .hero-title-sub {
-            font-size: 18px;
-            opacity: 0.9;
             margin-bottom: 22px;
         }
 
-        .hero-body {
-            font-size: 15px;
-            line-height: 1.9;
+        .hero-title-sub {
+            font-size: 20px;
             opacity: 0.9;
-            max-width: 520px;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
+        }
+
+        .hero-body {
+            font-size: 16px;
+            line-height: 1.9;
+            opacity: 0.92;
+            max-width: 640px;
+            margin-bottom: 34px;
+            text-align: justify;       /* 양끝맞춤 느낌 */
+            text-justify: inter-word;
         }
 
         .hero-meta {
             font-size: 13px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            opacity: 0.7;
-            margin-bottom: 26px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            text-align: justify;       /* 좌우로 꽉 차는 느낌 */
+            text-justify: inter-character;
         }
 
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 16px;
         }
 
         .btn-hero {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 28px;
-            font-size: 13px;
-            letter-spacing: 1.5px;
+            padding: 14px 32px;        /* 버튼 키우기 */
+            font-size: 14px;
+            letter-spacing: 1.7px;
             text-transform: uppercase;
             border-radius: 999px;
             border: 1px solid rgba(255,255,255,0.3);
@@ -202,9 +207,9 @@
         }
 
         .hero-note {
-            margin-top: 18px;
-            font-size: 12px;
-            opacity: 0.6;
+            margin-top: 20px;
+            font-size: 13px;
+            opacity: 0.7;
         }
 
         /* ============================================
@@ -231,7 +236,7 @@
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 60px;
-            align-items: start;
+            align-items: center; /* 3. 프로필 옆 텍스트 세로 중앙 정렬 */
         }
 
         .about-left {
@@ -280,7 +285,8 @@
         .about-text {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
+            max-width: 620px; /* 이미지와 균형 맞게 */
         }
 
         .about-text p {
@@ -326,13 +332,16 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 36px;
         }
 
         .project-card {
             border: 2px solid #000000;
             overflow: hidden;
             transition: transform 0.3s ease;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -341,7 +350,7 @@
 
         .project-image-wrapper {
             width: 100%;
-            height: 300px;
+            aspect-ratio: 16 / 9; /* 4. 16:9 비율 고정 */
             overflow: hidden;
             border-bottom: 2px solid #000000;
         }
@@ -349,35 +358,36 @@
         .project-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover;  /* 좌우 여백 없이 꽉 채우기 */
+            display: block;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .project-card:hover .project-image {
             transform: scale(1.05);
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .project-content {
-            padding: 30px;
+            padding: 24px 28px 26px;
         }
 
         .project-content h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-size: 20px;
+            margin-bottom: 12px;
             font-weight: 600;
             line-height: 1.4;
         }
 
         .project-content p {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             opacity: 0.85;
         }
 
         .project-tech {
-            font-size: 13px;
+            font-size: 12px;
             opacity: 0.6;
             font-style: italic;
         }
@@ -486,11 +496,11 @@
             }
 
             .hero-title-main {
-                font-size: 36px;
+                font-size: 42px;
             }
 
             .hero-body {
-                font-size: 14px;
+                font-size: 15px;
             }
 
             section:not(.hero) {
@@ -503,12 +513,12 @@
             }
 
             .about-content {
-                grid-template-columns: 250px 1fr;
+                grid-template-columns: 260px 1fr;
                 gap: 40px;
             }
 
             .projects-grid {
-                gap: 30px;
+                gap: 28px;
             }
         }
 
@@ -530,7 +540,7 @@
             }
 
             .hero-title-main {
-                font-size: 28px;
+                font-size: 30px;
             }
 
             .hero-title-sub {
@@ -539,6 +549,12 @@
 
             .hero-body {
                 font-size: 13px;
+                max-width: 100%;
+            }
+
+            .hero-meta {
+                font-size: 11px;
+                letter-spacing: 2px;
             }
 
             .hero-buttons {
@@ -567,6 +583,7 @@
 
             .about-text {
                 text-align: left;
+                max-width: 100%;
             }
 
             .skills-tags {
@@ -580,19 +597,19 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 24px;
             }
 
             .project-image-wrapper {
-                height: 250px;
+                border-bottom-width: 2px;
             }
 
             .project-content {
-                padding: 25px;
+                padding: 22px;
             }
 
             .project-content h3 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .contact-message {
@@ -633,7 +650,7 @@
     </nav>
 
     <!-- ============================================
-         히어로 섹션 (PMR 메인 구조 참고)
+         히어로 섹션
     ============================================ -->
     <section id="home" class="hero">
         <div class="hero-inner">
