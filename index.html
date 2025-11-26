@@ -26,91 +26,183 @@
             background-color: #FFFFFF;
         }
 
+        a {
+            text-decoration: none;
+        }
+
         /* ============================================
-           네비게이션 바
+           네비게이션 바 (PMR 스타일 참고)
         ============================================ */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px 0;
             z-index: 1000;
-            border-bottom: 1px solid #000000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 5vw;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.0));
+            backdrop-filter: blur(6px);
+            transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+
+        .nav-logo span {
+            opacity: 0.7;
+            font-weight: 400;
         }
 
         nav ul {
             display: flex;
-            justify-content: center;
             list-style: none;
-            gap: 40px;
+            gap: 28px;
         }
 
         nav a {
             text-decoration: none;
-            color: #000000;
+            color: #FFFFFF;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 1px;
             transition: opacity 0.3s ease;
         }
 
-        /* C1 미니멀 서틀 인터랙션 */
         nav a:hover {
             opacity: 0.5;
         }
 
+        /* 스크롤 후 상태 */
+        .nav-solid {
+            background-color: rgba(0,0,0,0.9);
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
         /* ============================================
-           히어로 섹션
+           히어로 섹션 (Project Motor Racing 메인 참고)
         ============================================ */
         .hero {
+            position: relative;
             height: 100vh;
+            padding: 0 5vw;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 60px;
+            color: #FFFFFF;
+            background: #000000 url('images/hero-main.jpg') center center / cover no-repeat fixed;
         }
 
-        .hero h1 {
-            font-size: 72px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -2px;
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.1), transparent 55%),
+                        linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+            z-index: 0;
         }
 
-        .hero .name-en {
-            font-size: 24px;
-            font-weight: 300;
-            letter-spacing: 8px;
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .hero-tag {
+            font-size: 14px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 30px;
             opacity: 0.7;
+            margin-bottom: 14px;
         }
 
-        .hero .divider {
-            width: 60px;
-            height: 2px;
-            background-color: #000000;
-            margin: 30px auto;
+        .hero-tag strong {
+            opacity: 1;
         }
 
-        .hero .title {
+        .hero-title-main {
+            font-size: 46px;
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title-sub {
             font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-bottom: 22px;
         }
 
-        .hero .intro {
-            font-size: 16px;
-            font-weight: 300;
-            max-width: 600px;
-            line-height: 1.8;
-            opacity: 0.8;
+        .hero-body {
+            font-size: 15px;
+            line-height: 1.9;
+            opacity: 0.9;
+            max-width: 520px;
+            margin-bottom: 32px;
+        }
+
+        .hero-meta {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 26px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+        }
+
+        .btn-hero-primary {
+            background-color: #FFFFFF;
+            color: #000000;
+            border-color: #FFFFFF;
+        }
+
+        .btn-hero-primary:hover {
+            background-color: #E5E5E5;
+            transform: translateY(-2px);
+        }
+
+        .btn-hero-secondary {
+            background-color: transparent;
+            color: #FFFFFF;
+        }
+
+        .btn-hero-secondary:hover {
+            background-color: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
+        }
+
+        .hero-note {
+            margin-top: 18px;
+            font-size: 12px;
+            opacity: 0.6;
         }
 
         /* ============================================
@@ -383,16 +475,20 @@
            반응형 디자인 - 태블릿
         ============================================ */
         @media (max-width: 968px) {
+            nav {
+                padding: 14px 4vw;
+            }
+
             nav ul {
-                gap: 25px;
+                gap: 18px;
             }
 
-            .hero h1 {
-                font-size: 56px;
+            .hero-title-main {
+                font-size: 36px;
             }
 
-            .hero .name-en {
-                font-size: 20px;
+            .hero-body {
+                font-size: 14px;
             }
 
             section {
@@ -418,34 +514,34 @@
            반응형 디자인 - 모바일
         ============================================ */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
+            nav {
+                padding: 12px 16px;
             }
 
-            nav a {
-                font-size: 12px;
+            nav ul {
+                display: none; /* 모바일에서는 상단 히어로에 집중 */
             }
 
             .hero {
-                margin-top: 80px;
+                background-attachment: scroll;
+                padding: 0 16px;
             }
 
-            .hero h1 {
-                font-size: 40px;
+            .hero-title-main {
+                font-size: 28px;
             }
 
-            .hero .name-en {
-                font-size: 16px;
-                letter-spacing: 4px;
+            .hero-title-sub {
+                font-size: 15px;
             }
 
-            .hero .title {
-                font-size: 16px;
+            .hero-body {
+                font-size: 13px;
             }
 
-            .hero .intro {
-                font-size: 14px;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             section {
@@ -522,6 +618,9 @@
          네비게이션
     ============================================ -->
     <nav>
+        <div class="nav-logo">
+            ILLUSTRACE <span>/ CHANGWAN KIM</span>
+        </div>
         <ul>
             <li><a href="#home">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
@@ -532,14 +631,33 @@
     </nav>
 
     <!-- ============================================
-         히어로 섹션
+         히어로 섹션 (PMR 메인 구조 참고)
     ============================================ -->
     <section id="home" class="hero">
-        <h1>김창완</h1>
-        <div class="name-en">changwan kim</div>
-        <div class="divider"></div>
-        <div class="title">Racer & Director</div>
-        <p class="intro">속도를 예술로 기록하는 시각 디자이너, 김창완입니다.</p>
+        <div class="hero-inner">
+            <p class="hero-tag"><strong>#ILLUSTRACE</strong> / SPEED AS ART</p>
+            <h1 class="hero-title-main">
+                속도를 예술로 기록하는<br>
+                시각 디자이너, 김창완
+            </h1>
+            <p class="hero-title-sub">
+                Racer & Visual Director based in Seoul, Korea
+            </p>
+            <p class="hero-body">
+                레이싱의 집중력과 일러스트의 섬세함을 결합해, 움직임을 시각 언어로 번역합니다.
+                ILLUSTRACE는 속도의 순간들을 붓터치와 그래픽으로 기록하는 김창완의 개인 레이싱 & 비주얼 프로젝트입니다.
+            </p>
+            <div class="hero-meta">
+                PORTFOLIO / BRANDING / ILLUSTRATION / RACING-INSPIRED VISUALS
+            </div>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-hero btn-hero-primary">VIEW PROJECTS</a>
+                <a href="#about" class="btn-hero btn-hero-secondary">ABOUT THE CREATOR</a>
+            </div>
+            <div class="hero-note">
+                스크롤해서 ILLUSTRACE의 세계를 더 둘러보세요.
+            </div>
+        </div>
     </section>
 
     <!-- ============================================
@@ -638,7 +756,7 @@
                 </div>
             </div>
 
-            <!-- 프로젝트 4 -->
+            <!-- 프로젝트 4 (placeholder) -->
             <div class="project-card">
                 <div class="project-image-wrapper">
                     <img src="https://via.placeholder.com/800x500/000000/FFFFFF?text=Project+04" alt="크리에이티브 피트" class="project-image">
@@ -705,19 +823,14 @@
         });
 
         // 스크롤 시 네비게이션 배경 조절
-        let lastScroll = 0;
         const nav = document.querySelector('nav');
-
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > 40) {
+                nav.classList.add('nav-solid');
             } else {
-                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                nav.classList.remove('nav-solid');
             }
-            
-            lastScroll = currentScroll;
         });
 
         // 페이지 로드 시 페이드인 애니메이션
