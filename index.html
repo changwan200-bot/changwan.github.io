@@ -96,7 +96,7 @@
             display: flex;
             align-items: center;
             color: #FFFFFF;
-            background: #000000 urlcenter center / cover no-repeat fixed;
+            background: #000000 url center center / cover no-repeat fixed;
         }
 
         .hero::before {
@@ -105,7 +105,7 @@
             inset: 0;
             background:
                 radial-gradient(circle at 20% 0%, rgba(255,255,255,0.08), transparent 55%),
-                linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+                linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5), rgba(0,0,0,0.96));
             z-index: 0;
         }
 
@@ -233,7 +233,7 @@
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 60px;
-            align-items: center;
+            align-items: center; /* 3. 프로필 옆 텍스트 세로 중앙 정렬 */
         }
 
         .about-left {
