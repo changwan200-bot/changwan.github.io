@@ -15,19 +15,23 @@
             box-sizing: border-box;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
             line-height: 1.6;
-            color: #ffffff;
-            background-color: #000000;
+            color: #000000;
+            background-color: #FFFFFF;
         }
 
-        a { text-decoration: none; }
+        a {
+            text-decoration: none;
+        }
 
         /* ============================================
-           네비게이션 바 — 단색 블랙으로 고정
+           네비게이션 바
         ============================================ */
         nav {
             position: fixed;
@@ -39,13 +43,10 @@
             align-items: center;
             justify-content: space-between;
             padding: 16px 5vw;
-
-            /* 🔥 그라데이션 제거 + 순수 단색 블랙 */
-            background: rgba(0,0,0,0.95) !important;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: none !important;
-
-            transition: background-color 0.3s ease;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.0));
+            backdrop-filter: blur(6px);
+            transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 1px solid transparent;
         }
 
         .nav-logo {
@@ -73,13 +74,20 @@
             font-weight: 500;
             font-size: 13px;
             letter-spacing: 1px;
+            transition: opacity 0.3s ease;
         }
 
-        nav a:hover { opacity: 0.5; }
+        nav a:hover {
+            opacity: 0.5;
+        }
 
+        .nav-solid {
+            background-color: rgba(0,0,0,0.9);
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
 
         /* ============================================
-           히어로 섹션 — 완전한 단색 블랙 배경
+           히어로 섹션
         ============================================ */
         .hero {
             position: relative;
@@ -89,15 +97,17 @@
             display: flex;
             align-items: center;
             color: #FFFFFF;
-
-            /* 🔥 순수 블랙 단색 */
-            background-color: #000000 !important;
-            background-image: none !important;
+            background: #000000 urlcenter center / cover no-repeat fixed;
         }
 
-        /* 🔥 기존 그라데이션 오버레이 완전 제거 */
         .hero::before {
-            content: none !important;
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(255,255,255,0.08), transparent 55%),
+                linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            z-index: 0;
         }
 
         .hero-inner {
@@ -114,10 +124,15 @@
             margin-bottom: 18px;
         }
 
+        .hero-tag strong {
+            opacity: 1;
+        }
+
         .hero-title-main {
             font-size: 56px;
             line-height: 1.2;
             font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 22px;
         }
 
@@ -134,38 +149,59 @@
             max-width: 640px;
             margin-bottom: 34px;
             text-align: justify;
+            text-justify: inter-word;
         }
 
         .hero-meta {
             font-size: 13px;
             letter-spacing: 3px;
+            text-transform: uppercase;
             opacity: 0.8;
             margin-bottom: 30px;
+            text-align: justify;
+            text-justify: inter-character;
         }
 
         .hero-buttons {
             display: flex;
+            flex-wrap: wrap;
             gap: 16px;
         }
 
         .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 14px 32px;
             font-size: 14px;
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
             border-radius: 999px;
             border: 1px solid rgba(255,255,255,0.3);
-            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
         }
 
         .btn-hero-primary {
             background-color: #FFFFFF;
             color: #000000;
+            border-color: #FFFFFF;
         }
 
-        .btn-hero-primary:hover { background-color: #E5E5E5; }
+        .btn-hero-primary:hover {
+            background-color: #E5E5E5;
+            transform: translateY(-2px);
+        }
 
         .btn-hero-secondary {
             background-color: transparent;
             color: #FFFFFF;
+        }
+
+        .btn-hero-secondary:hover {
+            background-color: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
         }
 
         .hero-note {
@@ -174,16 +210,13 @@
             opacity: 0.7;
         }
 
-
         /* ============================================
-           섹션 공통 스타일
+           섹션 공통 스타일 (히어로 제외)
         ============================================ */
         section:not(.hero) {
             padding: 100px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            color: #000;
-            background: #fff;
         }
 
         section:not(.hero) h2 {
@@ -191,11 +224,11 @@
             font-weight: 700;
             margin-bottom: 60px;
             text-align: center;
+            letter-spacing: -1px;
         }
 
-
         /* ============================================
-           About Me
+           About Me 섹션
         ============================================ */
         .about-content {
             display: grid;
@@ -204,19 +237,94 @@
             align-items: center;
         }
 
-        .about-image {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #000;
+        .about-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #000000;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.05);
+        }
+
+        .about-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .about-info .subtitle {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .about-info .location {
+            font-size: 13px;
+            opacity: 0.6;
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 620px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            opacity: 0.9;
+        }
 
         /* ============================================
-           Projects – 16:9 풀폭
+           Skills 섹션
+        ============================================ */
+        .skills-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            padding: 15px 30px;
+            border: 2px solid #000000;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           Projects 섹션 (16:9 풀폭 배너)
         ============================================ */
 
+        /* Projects 제목은 기존 섹션 폭 안에서 중앙 정렬 */
         #projects-title {
             max-width: 1200px;
             margin: 0 auto 40px;
@@ -224,30 +332,68 @@
             font-size: 48px;
             font-weight: 700;
             text-align: center;
+            letter-spacing: -1px;
         }
 
+        /* 화면 전체 너비로 나가는 래퍼 */
         .project-fullwrap {
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
+            width: 100vw;                          /* 뷰포트 전체 폭 */
+            margin-left: calc(50% - 50vw);         /* 가운데 기준으로 좌우로 빼내기 */
             margin-bottom: 40px;
         }
 
         .project-banner {
             position: relative;
             width: 100%;
-            aspect-ratio: 16/9;
+            aspect-ratio: 16 / 9;                  /* 16:9 비율 고정 */
             overflow: hidden;
         }
 
         .project-banner img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover;                     /* 양쪽 여백 없이 꽉 채우기 */
+            display: block;
+            transform: scale(1.02);
+            transition: transform 0.4s ease;
         }
 
+        .project-banner:hover img {
+            transform: scale(1.06);
+        }
+
+        /* 이미지 위 텍스트 정보 */
+        .project-banner-info {
+            position: absolute;
+            left: 5%;
+            bottom: 14%;
+            color: #ffffff;
+            max-width: 40%;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+        }
+
+        .project-banner-info h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-banner-info p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .project-banner-tech {
+            margin-top: 10px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
 
         /* ============================================
-           Contact
+           Contact 섹션
         ============================================ */
         .contact-content {
             text-align: center;
@@ -255,32 +401,244 @@
             margin: 0 auto;
         }
 
-        .contact-link-button {
-            padding: 15px 50px;
-            border: 2px solid #000;
-            display: inline-block;
-            margin-top: 20px;
+        .contact-message {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            font-style: italic;
         }
 
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 16px;
+        }
+
+        .contact-item .label {
+            font-weight: 600;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .contact-item .value {
+            text-align: left;
+            opacity: 0.8;
+        }
+
+        .contact-item a {
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.5;
+        }
+
+        .contact-link-button {
+            display: inline-block;
+            padding: 15px 50px;
+            border: 2px solid #000000;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link-button:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           Footer
+        ============================================ */
         footer {
             text-align: center;
             padding: 40px 20px;
-            border-top: 1px solid #000;
-            background: #fff;
+            border-top: 1px solid #000000;
+            font-size: 14px;
         }
 
+        footer a {
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.5;
+        }
 
         /* ============================================
-           JS 반응 관련은 그대로 유지
+           반응형 - 태블릿
         ============================================ */
+        @media (max-width: 968px) {
+            nav {
+                padding: 14px 4vw;
+            }
+
+            nav ul {
+                gap: 18px;
+            }
+
+            .hero-title-main {
+                font-size: 42px;
+            }
+
+            .hero-body {
+                font-size: 15px;
+            }
+
+            section:not(.hero) {
+                padding: 80px 20px;
+            }
+
+            section:not(.hero) h2 {
+                font-size: 40px;
+                margin-bottom: 50px;
+            }
+
+            .about-content {
+                grid-template-columns: 260px 1fr;
+                gap: 40px;
+            }
+
+            .project-banner-info h3 {
+                font-size: 24px;
+            }
+        }
+
+        /* ============================================
+           반응형 - 모바일
+        ============================================ */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                background-attachment: scroll;
+                padding: 0 16px;
+            }
+
+            .hero-title-main {
+                font-size: 30px;
+            }
+
+            .hero-title-sub {
+                font-size: 15px;
+            }
+
+            .hero-body {
+                font-size: 13px;
+                max-width: 100%;
+            }
+
+            .hero-meta {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            section:not(.hero) {
+                padding: 60px 20px;
+            }
+
+            section:not(.hero) h2 {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .about-left {
+                margin: 0 auto;
+            }
+
+            .about-text {
+                text-align: left;
+                max-width: 100%;
+            }
+
+            .skills-tags {
+                gap: 10px;
+            }
+
+            .skill-tag {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            #projects-title {
+                font-size: 32px;
+            }
+
+            .project-banner-info {
+                max-width: 70%;
+                left: 6%;
+                bottom: 10%;
+            }
+
+            .project-banner-info h3 {
+                font-size: 20px;
+            }
+
+            .project-banner-info p {
+                font-size: 12px;
+            }
+
+            .contact-message {
+                font-size: 20px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .contact-item .label {
+                text-align: center;
+                min-width: auto;
+            }
+
+            .contact-item .value {
+                text-align: center;
+            }
+        }
     </style>
 </head>
-
 <body>
-
-    <!-- 네비 -->
+    <!-- 네비게이션 -->
     <nav>
-        <div class="nav-logo">ILLUSTRACE <span>/ CHANGWAN KIM</span></div>
+        <div class="nav-logo">
+            ILLUSTRACE <span>/ CHANGWAN KIM</span>
+        </div>
         <ul>
             <li><a href="#home">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
@@ -294,22 +652,233 @@
     <section id="home" class="hero">
         <div class="hero-inner">
             <p class="hero-tag"><strong>#ILLUSTRACE</strong> / SPEED AS ART</p>
-            <h1 class="hero-title-main">속도를 예술로 기록하는<br>시각 디자이너, 김창완</h1>
-            <p class="hero-title-sub">Racer & Visual Director based in Seoul, Korea</p>
+            <h1 class="hero-title-main">
+                속도를 예술로 기록하는<br>
+                시각 디자이너, 김창완
+            </h1>
+            <p class="hero-title-sub">
+                Racer & Visual Director based in Seoul, Korea
+            </p>
             <p class="hero-body">
                 레이싱의 집중력과 일러스트의 섬세함을 결합해, 움직임을 시각 언어로 번역합니다.
-                ILLUSTRACE는 속도의 순간들을 붓터치와 그래픽으로 기록하는 개인 레이싱 & 비주얼 프로젝트입니다.
+                ILLUSTRACE는 속도의 순간들을 붓터치와 그래픽으로 기록하는 김창완의 개인 레이싱 & 비주얼 프로젝트입니다.
             </p>
-            <div class="hero-meta">PORTFOLIO / BRANDING / ILLUSTRATION / RACING-INSPIRED VISUALS</div>
-
-            <div class="hero-buttons">
-                <a class="btn-hero btn-hero-primary" href="#projects">VIEW PROJECTS</a>
-                <a class="btn-hero btn-hero-secondary" href="#about">ABOUT THE CREATOR</a>
+            <div class="hero-meta">
+                PORTFOLIO / BRANDING / ILLUSTRATION / RACING-INSPIRED VISUALS
             </div>
-
-            <div class="hero-note">스크롤해서 ILLUSTRACE의 세계를 더 둘러보세요.</div>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-hero btn-hero-primary">VIEW PROJECTS</a>
+                <a href="#about" class="btn-hero btn-hero-secondary">ABOUT THE CREATOR</a>
+            </div>
+            <div class="hero-note">
+                스크롤해서 ILLUSTRACE의 세계를 더 둘러보세요.
+            </div>
         </div>
     </section>
 
+    <!-- About Me -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-left">
+                <img src="images/profile.jpg" alt="김창완 프로필 사진" class="about-image">
+                <div class="about-info">
+                    <h3>김창완</h3>
+                    <div class="subtitle">Racer & Director</div>
+                    <div class="location">Seoul, Korea</div>
+                </div>
+            </div>
+            <div class="about-text">
+                <p>조용한 겉모습 뒤에 숨은 집중력으로, 속도의 순간을 그림으로 기록합니다.</p>
+                <p>레이싱의 정밀함과 일러스트의 감성을 연결하며, 움직임을 시각적 언어로 번역합니다.</p>
+                <p>예술과 퍼포먼스 사이에서 균형을 찾는 크리에이터로, ILLUSTRACE의 세계를 확장해갑니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-tags">
+                <div class="skill-tag">Visual Branding & Identity Design</div>
+                <div class="skill-tag">Illustration & Character Concepting</div>
+                <div class="skill-tag">Motion & Speed-Inspired Graphics</div>
+                <div class="skill-tag">Creative Direction & Storytelling</div>
+                <div class="skill-tag">Digital Tools & AI-Assisted Workflow</div>
+                <div class="skill-tag">Precision Analysis & Technical Aesthetics</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects (16:9 풀폭 배너) -->
+    <section id="projects">
+        <h2 id="projects-title">Projects</h2>
+
+        <!-- 프로젝트 1 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project1.jpg" alt="ILLUST x RACE">
+                <div class="project-banner-info">
+                    <h3>ILLUST x RACE: 감성과 속도의 결합</h3>
+                    <p>
+                        붓의 질감과 레이스의 속도를 한 장면에 표현
+                         ILLUST의 감성과 RACE의 집중이 만나는 브랜드의 ‘진정한 리듬’을 전달합니다.
+                    </p>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로젝트 2 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project2.jpg" alt="붓터치 속도감">
+                <div class="project-banner-info">
+                    <h3>붓터치 속도감을 담은 레드·블루 패턴</h3>
+                    <p>
+                        검은 바탕 위로 빨강·파랑·흰색의 거친 붓터치가 번개처럼 스치며 지나가듯 펼쳐진 그래픽
+                        격렬한 속도와 순간적인 에너지가 색의 흐름으로 변환되어, 레이싱 트랙을 지나가는 타이어 자국처럼 강렬한 리듬감을 형성한다.
+                    </p>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로젝트 3 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project3.jpg" alt="일러스트레이스 서킷">
+                <div class="project-banner-info">
+                    <h3>붓터치 트레일로 속도를 기록하는 일러스트레이스 서킷 장면</h3>
+                    <p>
+                        레이싱카가 코너를 돌며 남긴 붉은·푸른 붓터치 트레일이 서킷 위에 선명히 펼쳐지고,
+                        '속도를 그림으로 기록한다'는 브랜드 철학을 시각적으로 드러내는 일러스트레이스의 대표 비주얼 이미지.
+                    </p>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로젝트 4 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project4.jpg" alt="크리에이티브 피트">
+                <div class="project-banner-info">
+                    <h3>레이싱과 아트가 공존하는 크리에이티브 피트</h3>
+                    <p>
+                        레이싱 피트 공간에 붓터치 패턴과 로고가 조화를 이루며 속도와 예술의 정체성을 시각적으로 표현한 장면.
+                    </p>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로젝트 5 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project5.jpg" alt="일러스트레이스 캐릭터">
+                <div class="project-banner-info">
+                    <h3>일러스트레이스 대표 캐릭터 설명</h3>
+                    <p>
+                        ILLUSTRACE는 속도와 예술 사이를 오가는 레이싱 캐릭터이다.
+                        평소에는 조용하지만, 레이스가 시작되면 날카로운 집중력으로 순간의 움직임을 기록한다.
+                    </p>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로젝트 6 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project6.jpg" alt="ILLUSTRACE PIT CREW">
+                <div class="project-banner-info">
+                    <h3>ILLUSTRACE PIT CREW: 2D의 세계를 넘어선 3D 팀 포트레이트</h3>
+                    <p>
+                        ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트이다.
+                        기존 작업보다 세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장된 비주얼이다.
+                    </p>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-content">
+            <p class="contact-message">
+                "당신의 속도는 당신만의 색으로 기록됩니다."
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="label">Email:</span>
+                    <span class="value"><a href="mailto:changwan0315@naver.com">changwan0315@naver.com</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Phone:</span>
+                    <span class="value"><a href="tel:010-2735-2970">010-2735-2970</a></span>
+                </div>
+            </div>
+            <a href="https://changwan200-bot.github.io/changwan.github.io/" target="_blank" class="contact-link-button">Visit Website</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 김창완. Powered by <a href="https://ai.triz.kr" target="_blank">AI Portfolio Workshop</a>.</p>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        // 네비게이션 링크 부드러운 스크롤
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 스크롤 시 네비게이션 배경 조절
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > 40) {
+                nav.classList.add('nav-solid');
+            } else {
+                nav.classList.remove('nav-solid');
+            }
+        });
+
+        // 페이지 로드 페이드인
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
 </body>
 </html>
