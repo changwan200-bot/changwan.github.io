@@ -96,7 +96,13 @@
             display: flex;
             align-items: center;
             color: #FFFFFF;
-            background: #000000 url center center / cover no-repeat fixed;
+
+            /* 단색 블랙 배경 */
+            background-color: #000000;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
         }
 
         .hero-inner {
@@ -223,7 +229,7 @@
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 60px;
-            align-items: center; /* 3. 프로필 옆 텍스트 세로 중앙 정렬 */
+            align-items: center;
         }
 
         .about-left {
@@ -313,7 +319,6 @@
            Projects 섹션 (16:9 풀폭 배너)
         ============================================ */
 
-        /* Projects 제목은 기존 섹션 폭 안에서 중앙 정렬 */
         #projects-title {
             max-width: 1200px;
             margin: 0 auto 40px;
@@ -324,24 +329,23 @@
             letter-spacing: -1px;
         }
 
-        /* 화면 전체 너비로 나가는 래퍼 */
         .project-fullwrap {
-            width: 100vw;                          /* 뷰포트 전체 폭 */
-            margin-left: calc(50% - 50vw);         /* 가운데 기준으로 좌우로 빼내기 */
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
             margin-bottom: 40px;
         }
 
         .project-banner {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;                  /* 16:9 비율 고정 */
+            aspect-ratio: 16 / 9;
             overflow: hidden;
         }
 
         .project-banner img {
             width: 100%;
             height: 100%;
-            object-fit: cover;                     /* 양쪽 여백 없이 꽉 채우기 */
+            object-fit: cover;
             display: block;
             transform: scale(1.02);
             transition: transform 0.4s ease;
@@ -351,7 +355,6 @@
             transform: scale(1.06);
         }
 
-        /* 이미지 위 텍스트 정보 */
         .project-banner-info {
             position: absolute;
             left: 5%;
@@ -620,6 +623,20 @@
                 text-align: center;
             }
         }
+
+        /* ============================================
+           ★ HERO 배경을 단색 블랙으로 강제 초기화 ★
+        ============================================ */
+        .hero,
+        .hero::before {
+            background: #000000 !important;
+            background-color: #000000 !important;
+            background-image: none !important;
+        }
+
+        .hero::before {
+            content: none !important;
+        }
     </style>
 </head>
 <body>
@@ -670,8 +687,6 @@
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-left">
-                
-                
                 <img src="images/profile.jpg" alt="김창완 프로필 사진" class="about-image">
                 <div class="about-info">
                     <h3>김창완</h3>
@@ -680,9 +695,9 @@
                 </div>
             </div>
             <div class="about-text">
-                     <p>조용한 겉모습 뒤에 숨은 집중력으로, 속도의 순간을 그림으로 기록합니다.</p>
-               <p>레이싱의 정밀함과 일러스트의 감성을 연결하며, 움직임을 시각적 언어로 번역합니다.</p>
-            <p>예술과 퍼포먼스 사이에서 균형을 찾는 크리에이터로, ILLUSTRACE의 세계를 확장해갑니다.</p>
+                <p>조용한 겉모습 뒤에 숨은 집중력으로, 속도의 순간을 그림으로 기록합니다.</p>
+                <p>레이싱의 정밀함과 일러스트의 감성을 연결하며, 움직임을 시각적 언어로 번역합니다.</p>
+                <p>예술과 퍼포먼스 사이에서 균형을 찾는 크리에이터로, ILLUSTRACE의 세계를 확장해갑니다.</p>
             </div>
         </div>
     </section>
@@ -702,7 +717,7 @@
         </div>
     </section>
 
-    <!-- Projects (16:9 풀폭 배너) -->
+    <!-- Projects -->
     <section id="projects">
         <h2 id="projects-title">Projects</h2>
 
@@ -714,7 +729,7 @@
                     <h3>ILLUST x RACE: 감성과 속도의 결합</h3>
                     <p>
                         붓의 질감과 레이스의 속도를 한 장면에 표현
-                         ILLUST의 감성과 RACE의 집중이 만나는 브랜드의 ‘진정한 리듬’을 전달합니다.
+                        ILLUST의 감성과 RACE의 집중이 만나는 브랜드의 ‘진정한 리듬’을 전달합니다.
                     </p>
                     <div class="project-banner-tech">
                         illustration (Adobe), stable diffusion online
