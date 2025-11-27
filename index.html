@@ -87,7 +87,7 @@
         }
 
         /* ============================================
-           히어로 섹션 (완전 블랙 배경)
+           히어로 섹션
         ============================================ */
         .hero {
             position: relative;
@@ -97,10 +97,18 @@
             display: flex;
             align-items: center;
             color: #FFFFFF;
-            background-color: #000000; /* 순수 검은색 */
+            background: #000000 urlcenter center / cover no-repeat fixed;
         }
 
-        /* hero::before 그라데이션 오버레이 제거 */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(255,255,255,0.08), transparent 55%),
+                linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            z-index: 0;
+        }
 
         .hero-inner {
             position: relative;
@@ -171,8 +179,7 @@
             border-radius: 999px;
             border: 1px solid rgba(255,255,255,0.3);
             cursor: pointer;
-            transition: background-color 0.25s ease, color 0.25s ease,
-                        border-color 0.25s ease, transform 0.15s ease;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
         }
 
         .btn-hero-primary {
@@ -317,6 +324,7 @@
            Projects 섹션 (16:9 풀폭 배너)
         ============================================ */
 
+        /* Projects 제목은 기존 섹션 폭 안에서 중앙 정렬 */
         #projects-title {
             max-width: 1200px;
             margin: 0 auto 40px;
@@ -327,23 +335,24 @@
             letter-spacing: -1px;
         }
 
+        /* 화면 전체 너비로 나가는 래퍼 */
         .project-fullwrap {
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
+            width: 100vw;                          /* 뷰포트 전체 폭 */
+            margin-left: calc(50% - 50vw);         /* 가운데 기준으로 좌우로 빼내기 */
             margin-bottom: 40px;
         }
 
         .project-banner {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 9;                  /* 16:9 비율 고정 */
             overflow: hidden;
         }
 
         .project-banner img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover;                     /* 양쪽 여백 없이 꽉 채우기 */
             display: block;
             transform: scale(1.02);
             transition: transform 0.4s ease;
@@ -353,6 +362,7 @@
             transform: scale(1.06);
         }
 
+        /* 이미지 위 텍스트 정보 */
         .project-banner-info {
             position: absolute;
             left: 5%;
@@ -701,7 +711,7 @@
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects (16:9 풀폭 배너) -->
     <section id="projects">
         <h2 id="projects-title">Projects</h2>
 
@@ -712,8 +722,8 @@
                 <div class="project-banner-info">
                     <h3>ILLUST x RACE: 감성과 속도의 결합</h3>
                     <p>
-                        붓의 질감과 레이스의 속도를 한 장면에 표현.
-                        ILLUST의 감성과 RACE의 집중이 만나는 브랜드의 ‘진정한 리듬’을 전달합니다.
+                        붓의 질감과 레이스의 속도를 한 장면에 표현
+                         ILLUST의 감성과 RACE의 집중이 만나는 브랜드의 ‘진정한 리듬’을 전달합니다.
                     </p>
                     <div class="project-banner-tech">
                         illustration (Adobe), stable diffusion online
@@ -729,8 +739,8 @@
                 <div class="project-banner-info">
                     <h3>붓터치 속도감을 담은 레드·블루 패턴</h3>
                     <p>
-                        검은 바탕 위로 빨강·파랑·흰색의 거친 붓터치가 번개처럼 스치며 지나가듯 펼쳐진 그래픽.
-                        격렬한 속도와 순간적인 에너지가 색의 흐름으로 변환되어, 레이싱 트랙을 지나가는 타이어 자국처럼 강렬한 리듬감을 형성합니다.
+                        검은 바탕 위로 빨강·파랑·흰색의 거친 붓터치가 번개처럼 스치며 지나가듯 펼쳐진 그래픽
+                        격렬한 속도와 순간적인 에너지가 색의 흐름으로 변환되어, 레이싱 트랙을 지나가는 타이어 자국처럼 강렬한 리듬감을 형성한다.
                     </p>
                     <div class="project-banner-tech">
                         illustration (Adobe), stable diffusion online
@@ -747,7 +757,7 @@
                     <h3>붓터치 트레일로 속도를 기록하는 일러스트레이스 서킷 장면</h3>
                     <p>
                         레이싱카가 코너를 돌며 남긴 붉은·푸른 붓터치 트레일이 서킷 위에 선명히 펼쳐지고,
-                        '속도를 그림으로 기록한다'는 브랜드 철학을 시각적으로 드러내는 일러스트레이스의 대표 비주얼 이미지입니다.
+                        '속도를 그림으로 기록한다'는 브랜드 철학을 시각적으로 드러내는 일러스트레이스의 대표 비주얼 이미지.
                     </p>
                     <div class="project-banner-tech">
                         illustration (Adobe), stable diffusion online
@@ -763,7 +773,7 @@
                 <div class="project-banner-info">
                     <h3>레이싱과 아트가 공존하는 크리에이티브 피트</h3>
                     <p>
-                        레이싱 피트 공간에 붓터치 패턴과 로고가 조화를 이루며 속도와 예술의 정체성을 시각적으로 표현한 장면입니다.
+                        레이싱 피트 공간에 붓터치 패턴과 로고가 조화를 이루며 속도와 예술의 정체성을 시각적으로 표현한 장면.
                     </p>
                     <div class="project-banner-tech">
                         illustration (Adobe), stable diffusion online
@@ -779,8 +789,8 @@
                 <div class="project-banner-info">
                     <h3>일러스트레이스 대표 캐릭터 설명</h3>
                     <p>
-                        ILLUSTRACE는 속도와 예술 사이를 오가는 레이싱 캐릭터입니다.
-                        평소에는 조용하지만, 레이스가 시작되면 날카로운 집중력으로 순간의 움직임을 기록합니다.
+                        ILLUSTRACE는 속도와 예술 사이를 오가는 레이싱 캐릭터이다.
+                        평소에는 조용하지만, 레이스가 시작되면 날카로운 집중력으로 순간의 움직임을 기록한다.
                     </p>
                     <div class="project-banner-tech">
                         illustration (Adobe), stable diffusion online
@@ -796,8 +806,8 @@
                 <div class="project-banner-info">
                     <h3>ILLUSTRACE PIT CREW: 2D의 세계를 넘어선 3D 팀 포트레이트</h3>
                     <p>
-                        ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트입니다.
-                        기존 작업보다 세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장된 비주얼입니다.
+                        ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트이다.
+                        기존 작업보다 세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장된 비주얼이다.
                     </p>
                     <div class="project-banner-tech">
                         illustration (Adobe), stable diffusion online
