@@ -31,7 +31,7 @@
         }
 
         /* ============================================
-           네비게이션 바 (PMR 스타일 참고)
+           네비게이션 바
         ============================================ */
         nav {
             position: fixed;
@@ -81,14 +81,13 @@
             opacity: 0.5;
         }
 
-        /* 스크롤 후 상태 */
         .nav-solid {
             background-color: rgba(0,0,0,0.9);
             border-bottom-color: rgba(255,255,255,0.1);
         }
 
         /* ============================================
-           히어로 섹션 (Project Motor Racing 메인 참고)
+           히어로 섹션
         ============================================ */
         .hero {
             position: relative;
@@ -98,7 +97,6 @@
             display: flex;
             align-items: center;
             color: #FFFFFF;
-            /* 1. 무드 이미지: project2 사용 */
             background: #000000 url('images/project2.jpg') center center / cover no-repeat fixed;
         }
 
@@ -107,19 +105,19 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 0%, rgba(255,255,255,0.12), transparent 55%),
-                linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5), rgba(0,0,0,0.96));
+                radial-gradient(circle at 20% 0%, rgba(255,255,255,0.08), transparent 55%),
+                linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.8));
             z-index: 0;
         }
 
         .hero-inner {
             position: relative;
             z-index: 1;
-            max-width: 840px; /* 텍스트 블록을 더 넓게 */
+            max-width: 840px;
         }
 
         .hero-tag {
-            font-size: 16px;           /* 폰트 키움 */
+            font-size: 16px;
             letter-spacing: 5px;
             text-transform: uppercase;
             opacity: 0.8;
@@ -131,7 +129,7 @@
         }
 
         .hero-title-main {
-            font-size: 56px;           /* 메인 타이틀 크게 */
+            font-size: 56px;
             line-height: 1.2;
             font-weight: 800;
             letter-spacing: -1px;
@@ -150,7 +148,7 @@
             opacity: 0.92;
             max-width: 640px;
             margin-bottom: 34px;
-            text-align: justify;       /* 양끝맞춤 느낌 */
+            text-align: justify;
             text-justify: inter-word;
         }
 
@@ -160,7 +158,7 @@
             text-transform: uppercase;
             opacity: 0.8;
             margin-bottom: 30px;
-            text-align: justify;       /* 좌우로 꽉 차는 느낌 */
+            text-align: justify;
             text-justify: inter-character;
         }
 
@@ -174,7 +172,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 32px;        /* 버튼 키우기 */
+            padding: 14px 32px;
             font-size: 14px;
             letter-spacing: 1.7px;
             text-transform: uppercase;
@@ -236,7 +234,7 @@
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 60px;
-            align-items: center; /* 3. 프로필 옆 텍스트 세로 중앙 정렬 */
+            align-items: center;
         }
 
         .about-left {
@@ -258,10 +256,6 @@
 
         .about-image:hover {
             transform: scale(1.05);
-        }
-
-        .about-info {
-            width: 100%;
         }
 
         .about-info h3 {
@@ -286,7 +280,7 @@
             display: flex;
             flex-direction: column;
             gap: 18px;
-            max-width: 620px; /* 이미지와 균형 맞게 */
+            max-width: 620px;
         }
 
         .about-text p {
@@ -327,69 +321,75 @@
         }
 
         /* ============================================
-           Projects 섹션
+           Projects 섹션 (16:9 풀폭 배너)
         ============================================ */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 36px;
+
+        /* Projects 제목은 기존 섹션 폭 안에서 중앙 정렬 */
+        #projects-title {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -1px;
         }
 
-        .project-card {
-            border: 2px solid #000000;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            background-color: #FFFFFF;
-            display: flex;
-            flex-direction: column;
+        /* 화면 전체 너비로 나가는 래퍼 */
+        .project-fullwrap {
+            width: 100vw;                          /* 뷰포트 전체 폭 */
+            margin-left: calc(50% - 50vw);         /* 가운데 기준으로 좌우로 빼내기 */
+            margin-bottom: 40px;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-image-wrapper {
+        .project-banner {
+            position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9; /* 4. 16:9 비율 고정 */
+            aspect-ratio: 16 / 9;                  /* 16:9 비율 고정 */
             overflow: hidden;
-            border-bottom: 2px solid #000000;
         }
 
-        .project-image {
+        .project-banner img {
             width: 100%;
             height: 100%;
-            object-fit: cover;  /* 좌우 여백 없이 꽉 채우기 */
+            object-fit: cover;                     /* 양쪽 여백 없이 꽉 채우기 */
             display: block;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: scale(1.02);
+            transition: transform 0.4s ease;
         }
 
-        .project-card:hover .project-image {
-            transform: scale(1.05);
+        .project-banner:hover img {
+            transform: scale(1.06);
+        }
+
+        /* 이미지 위 텍스트 정보 */
+        .project-banner-info {
+            position: absolute;
+            left: 5%;
+            bottom: 14%;
+            color: #ffffff;
+            max-width: 40%;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+        }
+
+        .project-banner-info h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-banner-info p {
+            font-size: 14px;
+            line-height: 1.8;
             opacity: 0.95;
         }
 
-        .project-content {
-            padding: 24px 28px 26px;
-        }
-
-        .project-content h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .project-content p {
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 12px;
-            opacity: 0.85;
-        }
-
-        .project-tech {
-            font-size: 12px;
-            opacity: 0.6;
-            font-style: italic;
+        .project-banner-tech {
+            margin-top: 10px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         /* ============================================
@@ -484,7 +484,7 @@
         }
 
         /* ============================================
-           반응형 디자인 - 태블릿
+           반응형 - 태블릿
         ============================================ */
         @media (max-width: 968px) {
             nav {
@@ -517,13 +517,13 @@
                 gap: 40px;
             }
 
-            .projects-grid {
-                gap: 28px;
+            .project-banner-info h3 {
+                font-size: 24px;
             }
         }
 
         /* ============================================
-           반응형 디자인 - 모바일
+           반응형 - 모바일
         ============================================ */
         @media (max-width: 768px) {
             nav {
@@ -531,7 +531,7 @@
             }
 
             nav ul {
-                display: none; /* 모바일에서는 상단 히어로에 집중 */
+                display: none;
             }
 
             .hero {
@@ -595,21 +595,22 @@
                 font-size: 14px;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+            #projects-title {
+                font-size: 32px;
             }
 
-            .project-image-wrapper {
-                border-bottom-width: 2px;
+            .project-banner-info {
+                max-width: 70%;
+                left: 6%;
+                bottom: 10%;
             }
 
-            .project-content {
-                padding: 22px;
+            .project-banner-info h3 {
+                font-size: 20px;
             }
 
-            .project-content h3 {
-                font-size: 18px;
+            .project-banner-info p {
+                font-size: 12px;
             }
 
             .contact-message {
@@ -633,9 +634,7 @@
     </style>
 </head>
 <body>
-    <!-- ============================================
-         네비게이션
-    ============================================ -->
+    <!-- 네비게이션 -->
     <nav>
         <div class="nav-logo">
             ILLUSTRACE <span>/ CHANGWAN KIM</span>
@@ -649,9 +648,7 @@
         </ul>
     </nav>
 
-    <!-- ============================================
-         히어로 섹션
-    ============================================ -->
+    <!-- 히어로 -->
     <section id="home" class="hero">
         <div class="hero-inner">
             <p class="hero-tag"><strong>#ILLUSTRACE</strong> / SPEED AS ART</p>
@@ -679,9 +676,7 @@
         </div>
     </section>
 
-    <!-- ============================================
-         About Me 섹션
-    ============================================ -->
+    <!-- About Me -->
     <section id="about">
         <h2>About Me</h2>
         <div class="about-content">
@@ -694,22 +689,14 @@
                 </div>
             </div>
             <div class="about-text">
-                <p>
-                    조용한 겉모습 뒤에 숨은 집중력으로, 속도의 순간을 그림으로 기록합니다.
-                </p>
-                <p>
-                    레이싱의 정밀함과 일러스트의 감성을 연결하며, 움직임을 시각적 언어로 번역합니다.
-                </p>
-                <p>
-                    예술과 퍼포먼스 사이에서 균형을 찾는 크리에이터로, ILLUSTRACE의 세계를 확장해갑니다.
-                </p>
+                <p>조용한 겉모습 뒤에 숨은 집중력으로, 속도의 순간을 그림으로 기록합니다.</p>
+                <p>레이싱의 정밀함과 일러스트의 감성을 연결하며, 움직임을 시각적 언어로 번역합니다.</p>
+                <p>예술과 퍼포먼스 사이에서 균형을 찾는 크리에이터로, ILLUSTRACE의 세계를 확장해갑니다.</p>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         Skills 섹션
-    ============================================ -->
+    <!-- Skills -->
     <section id="skills">
         <h2>Skills</h2>
         <div class="skills-container">
@@ -724,106 +711,113 @@
         </div>
     </section>
 
-    <!-- ============================================
-         Projects 섹션
-    ============================================ -->
+    <!-- Projects (16:9 풀폭 배너) -->
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <!-- 프로젝트 1 -->
-            <div class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/project1.jpg" alt="ILLUST x RACE" class="project-image">
-                </div>
-                <div class="project-content">
+        <h2 id="projects-title">Projects</h2>
+
+        <!-- 프로젝트 1 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project1.jpg" alt="ILLUST x RACE">
+                <div class="project-banner-info">
                     <h3>ILLUST x RACE: 감성과 속도의 결합</h3>
                     <p>
                         사용자 경험을 개선하기 위한 모바일 뱅킹 앱 전면 리디자인 프로젝트.
                         복잡한 금융 기능을 직관적인 UI로 재구성하여 사용자 만족도 40% 향상.
                     </p>
-                    <div class="project-tech">illustration(Adobe), stable diffusion online</div>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 프로젝트 2 -->
-            <div class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/project2.jpg" alt="붓터치 속도감" class="project-image">
-                </div>
-                <div class="project-content">
+        <!-- 프로젝트 2 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project2.jpg" alt="붓터치 속도감">
+                <div class="project-banner-info">
                     <h3>붓터치 속도감을 담은 레드·블루 패턴</h3>
                     <p>
-                        검은 바탕 위로 빨강·파랑·흰색의 거친 붓터치가 번개처럼 스치며 지나가듯 펼쳐진 그래픽이다. 
+                        검은 바탕 위로 빨강·파랑·흰색의 거친 붓터치가 번개처럼 스치며 지나가듯 펼쳐진 그래픽이다.
                         격렬한 속도와 순간적인 에너지가 색의 흐름으로 변환되어, 레이싱 트랙을 지나가는 타이어 자국처럼 강렬한 리듬감을 형성한다.
                     </p>
-                    <div class="project-tech">illustration(Adobe), stable diffusion online</div>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 프로젝트 3 -->
-            <div class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/project3.jpg" alt="일러스트레이스 서킷" class="project-image">
-                </div>
-                <div class="project-content">
+        <!-- 프로젝트 3 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project3.jpg" alt="일러스트레이스 서킷">
+                <div class="project-banner-info">
                     <h3>붓터치 트레일로 속도를 기록하는 일러스트레이스 서킷 장면</h3>
                     <p>
                         레이싱카가 코너를 돌며 남긴 붉은·푸른 붓터치 트레일이 서킷 위에 선명히 펼쳐지고,
                         '속도를 그림으로 기록한다'는 브랜드 철학을 시각적으로 드러내는 일러스트레이스의 대표 비주얼 이미지.
                     </p>
-                    <div class="project-tech">illustration(Adobe), stable diffusion online</div>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 프로젝트 4 -->
-            <div class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/project4.jpg" alt="크리에이티브 피트" class="project-image">
-                </div>
-                <div class="project-content">
+        <!-- 프로젝트 4 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project4.jpg" alt="크리에이티브 피트">
+                <div class="project-banner-info">
                     <h3>레이싱과 아트가 공존하는 크리에이티브 피트</h3>
                     <p>
                         레이싱 피트 공간에 붓터치 패턴과 로고가 조화를 이루며 속도와 예술의 정체성을 시각적으로 표현한 장면.
                     </p>
-                    <div class="project-tech">illustration(Adobe), stable diffusion online</div>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 프로젝트 5 -->
-            <div class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/project5.jpg" alt="일러스트레이스 캐릭터" class="project-image">
-                </div>
-                <div class="project-content">
+        <!-- 프로젝트 5 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project5.jpg" alt="일러스트레이스 캐릭터">
+                <div class="project-banner-info">
                     <h3>일러스트레이스 대표 캐릭터 설명</h3>
                     <p>
                         ILLUSTRACE는 속도와 예술 사이를 오가는 레이싱 캐릭터이다.
-                        평소에는 조용하지만, 레이스가 시작되면 날카로운 집중력으로 순간의 움직임을 기록합니다.
+                        평소에는 조용하지만, 레이스가 시작되면 날카로운 집중력으로 순간의 움직임을 기록한다.
                     </p>
-                    <div class="project-tech">illustration(Adobe), stable diffusion online</div>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 프로젝트 6 -->
-            <div class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/project6.jpg" alt="ILLUSTRACE PIT CREW" class="project-image">
-                </div>
-                <div class="project-content">
+        <!-- 프로젝트 6 -->
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project6.jpg" alt="ILLUSTRACE PIT CREW">
+                <div class="project-banner-info">
                     <h3>ILLUSTRACE PIT CREW: 2D의 세계를 넘어선 3D 팀 포트레이트</h3>
                     <p>
-                        ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트입니다. 
-                        기존 작업보다 세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장된 비주얼입니다.
+                        ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트이다.
+                        기존 작업보다 세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장된 비주얼이다.
                     </p>
-                    <div class="project-tech">illustration(Adobe), stable diffusion online</div>
+                    <div class="project-banner-tech">
+                        illustration (Adobe), stable diffusion online
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         Contact 섹션
-    ============================================ -->
+    <!-- Contact -->
     <section id="contact">
         <h2>Contact</h2>
         <div class="contact-content">
@@ -844,16 +838,12 @@
         </div>
     </section>
 
-    <!-- ============================================
-         Footer
-    ============================================ -->
+    <!-- Footer -->
     <footer>
         <p>© 2025 김창완. Powered by <a href="https://ai.triz.kr" target="_blank">AI Portfolio Workshop</a>.</p>
     </footer>
 
-    <!-- ============================================
-         JavaScript - 스크롤 인터랙션
-    ============================================ -->
+    <!-- JS -->
     <script>
         // 네비게이션 링크 부드러운 스크롤
         document.querySelectorAll('nav a').forEach(anchor => {
@@ -861,7 +851,6 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                
                 if (targetSection) {
                     targetSection.scrollIntoView({
                         behavior: 'smooth',
@@ -882,7 +871,7 @@
             }
         });
 
-        // 페이지 로드 시 페이드인 애니메이션
+        // 페이지 로드 페이드인
         window.addEventListener('load', () => {
             document.body.style.opacity = '0';
             setTimeout(() => {
