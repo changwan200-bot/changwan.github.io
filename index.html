@@ -30,6 +30,12 @@
             text-decoration: none;
         }
 
+        /* 전역 이미지 반응형 설정 */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* ============================================
            네비게이션 바
         ============================================ */
@@ -318,7 +324,6 @@
         /* ============================================
            Projects 섹션 (16:9 풀폭 배너)
         ============================================ */
-
         #projects-title {
             max-width: 1200px;
             margin: 0 auto 40px;
@@ -332,7 +337,7 @@
         .project-fullwrap {
             width: 100vw;
             margin-left: calc(50% - 50vw);
-            margin-bottom: 0;        /* ★ 이미지들 사이 여백 제거 */
+            margin-bottom: 0;        /* 이미지들 사이 여백 제거 */
         }
 
         .project-banner {
@@ -340,6 +345,11 @@
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
+
+            /* 양쪽 흰색 여백 */
+            padding-left: 40px;
+            padding-right: 40px;
+            background-color: #FFFFFF;
         }
 
         .project-banner img {
@@ -349,6 +359,7 @@
             display: block;
             transform: scale(1.02);
             transition: transform 0.4s ease;
+            border-radius: 8px; /* 여백과 어울리게 모서리 정리 (선택 사항) */
         }
 
         .project-banner:hover img {
