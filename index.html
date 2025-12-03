@@ -30,7 +30,6 @@
             text-decoration: none;
         }
 
-        /* Behance처럼 브라우저 확대/축소 시 같이 반응 */
         img {
             max-width: 100%;
             height: auto;
@@ -211,12 +210,12 @@
         }
 
         /* ============================================
-           공통 섹션 레이아웃 (Behance 느낌 넉넉한 여백)
+           공통 섹션 레이아웃
         ============================================ */
         section:not(.hero) {
-            max-width: 1400px;          /* 중앙 컨테이너 폭 (넓게) */
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 120px 6vw;         /* 좌우 여백 6vw로 반응형 */
+            padding: 120px 6vw;
         }
 
         section:not(.hero) h2 {
@@ -231,10 +230,10 @@
            About Me 섹션
         ============================================ */
         .about-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 60px;
-            align-items: center;
+            display: flex;               /* 가로 배치 */
+            align-items: center;         /* 세로 중앙 정렬 */
+            justify-content: flex-start;
+            gap: 80px;                   /* 이미지와 텍스트 사이 간격 */
         }
 
         .about-left {
@@ -321,9 +320,8 @@
         }
 
         /* ============================================
-           Projects 섹션 (Behance 갤러리 레이아웃)
+           Projects 섹션
         ============================================ */
-
         #projects-title {
             font-size: 48px;
             font-weight: 700;
@@ -331,26 +329,24 @@
             margin-bottom: 60px;
         }
 
-        /* 프로젝트 전체 래퍼: 섹션 안에서 세로 리스트 */
         .projects-wrap {
             display: flex;
             flex-direction: column;
-            gap: 80px; /* 각 이미지 사이 여백 (Behance처럼 여유 있게) */
+            gap: 80px;
         }
 
-        /* 각 프로젝트 아이템: 중앙 정렬 + 양쪽 넉넉한 여백 */
         .project-fullwrap {
-            max-width: 1100px;         /* 실제 이미지 블럭 최대 폭 */
-            margin: 0 auto;            /* 가운데 정렬 */
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .project-banner {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;      /* 16:9 비율 유지 */
+            aspect-ratio: 16 / 9;
             overflow: hidden;
-            background-color: #000;    /* 이미지를 못 불러올 때 대비 */
-            border-radius: 8px;        /* 살짝 둥근 모서리 (원치 않으면 제거 가능) */
+            background-color: #000;
+            border-radius: 8px;
         }
 
         .project-banner img {
@@ -362,7 +358,7 @@
         }
 
         .project-banner:hover img {
-            transform: scale(1.03);    /* 약간만 확대 (눈 피로 최소화) */
+            transform: scale(1.03);
         }
 
         .project-banner-info {
@@ -515,8 +511,7 @@
             }
 
             .about-content {
-                grid-template-columns: 260px 1fr;
-                gap: 40px;
+                gap: 40px;  /* 태블릿에서 간격 조금 줄이기 */
             }
 
             .project-banner-info h3 {
@@ -573,14 +568,12 @@
                 margin-bottom: 40px;
             }
 
+            /* About 섹션: 모바일에서는 세로로 쌓이게 */
             .about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+                flex-direction: column;
+                align-items: center;
                 text-align: center;
-            }
-
-            .about-left {
-                margin: 0 auto;
+                gap: 30px;
             }
 
             .about-text {
