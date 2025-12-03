@@ -7,7 +7,7 @@
     <title>김창완 | Visual Designer Portfolio</title>
     <style>
         /* ============================================
-           전역 스타일 및 리셋
+           전역 리셋 + 이미지 반응형
         ============================================ */
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
             line-height: 1.6;
             color: #000000;
             background-color: #FFFFFF;
@@ -30,10 +30,11 @@
             text-decoration: none;
         }
 
-        /* 전역 이미지 반응형 설정 */
+        /* Behance처럼 브라우저 확대/축소 시 같이 반응 */
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
 
         /* ============================================
@@ -92,7 +93,7 @@
         }
 
         /* ============================================
-           히어로 섹션
+           히어로 섹션 (단색 블랙)
         ============================================ */
         .hero {
             position: relative;
@@ -102,8 +103,6 @@
             display: flex;
             align-items: center;
             color: #FFFFFF;
-
-            /* 단색 블랙 배경 */
             background-color: #000000;
             background-image: none;
             background-repeat: no-repeat;
@@ -212,12 +211,12 @@
         }
 
         /* ============================================
-           섹션 공통 스타일 (히어로 제외)
+           공통 섹션 레이아웃 (Behance 느낌 넉넉한 여백)
         ============================================ */
         section:not(.hero) {
-            padding: 100px 20px;
-            max-width: 1200px;
+            max-width: 1400px;          /* 중앙 컨테이너 폭 (넓게) */
             margin: 0 auto;
+            padding: 120px 6vw;         /* 좌우 여백 6vw로 반응형 */
         }
 
         section:not(.hero) h2 {
@@ -322,34 +321,36 @@
         }
 
         /* ============================================
-           Projects 섹션 (16:9 풀폭 배너)
+           Projects 섹션 (Behance 갤러리 레이아웃)
         ============================================ */
+
         #projects-title {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
             font-size: 48px;
             font-weight: 700;
             text-align: center;
-            letter-spacing: -1px;
+            margin-bottom: 60px;
         }
 
+        /* 프로젝트 전체 래퍼: 섹션 안에서 세로 리스트 */
+        .projects-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 80px; /* 각 이미지 사이 여백 (Behance처럼 여유 있게) */
+        }
+
+        /* 각 프로젝트 아이템: 중앙 정렬 + 양쪽 넉넉한 여백 */
         .project-fullwrap {
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
-            margin-bottom: 0;        /* 이미지들 사이 여백 제거 */
+            max-width: 1100px;         /* 실제 이미지 블럭 최대 폭 */
+            margin: 0 auto;            /* 가운데 정렬 */
         }
 
         .project-banner {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 9;      /* 16:9 비율 유지 */
             overflow: hidden;
-
-            /* 양쪽 흰색 여백 */
-            padding-left: 40px;
-            padding-right: 40px;
-            background-color: #FFFFFF;
+            background-color: #000;    /* 이미지를 못 불러올 때 대비 */
+            border-radius: 8px;        /* 살짝 둥근 모서리 (원치 않으면 제거 가능) */
         }
 
         .project-banner img {
@@ -357,26 +358,24 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transform: scale(1.02);
             transition: transform 0.4s ease;
-            border-radius: 8px; /* 여백과 어울리게 모서리 정리 (선택 사항) */
         }
 
         .project-banner:hover img {
-            transform: scale(1.06);
+            transform: scale(1.03);    /* 약간만 확대 (눈 피로 최소화) */
         }
 
         .project-banner-info {
             position: absolute;
-            left: 5%;
-            bottom: 14%;
+            left: 6%;
+            bottom: 12%;
             color: #ffffff;
             max-width: 40%;
             text-shadow: 0 2px 6px rgba(0,0,0,0.7);
         }
 
         .project-banner-info h3 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             margin-bottom: 10px;
         }
@@ -507,7 +506,7 @@
             }
 
             section:not(.hero) {
-                padding: 80px 20px;
+                padding: 100px 5vw;
             }
 
             section:not(.hero) h2 {
@@ -521,7 +520,7 @@
             }
 
             .project-banner-info h3 {
-                font-size: 24px;
+                font-size: 22px;
             }
         }
 
@@ -566,7 +565,7 @@
             }
 
             section:not(.hero) {
-                padding: 60px 20px;
+                padding: 80px 6vw;
             }
 
             section:not(.hero) h2 {
@@ -587,15 +586,6 @@
             .about-text {
                 text-align: left;
                 max-width: 100%;
-            }
-
-            .skills-tags {
-                gap: 10px;
-            }
-
-            .skill-tag {
-                padding: 12px 20px;
-                font-size: 14px;
             }
 
             #projects-title {
@@ -633,20 +623,6 @@
             .contact-item .value {
                 text-align: center;
             }
-        }
-
-        /* ============================================
-           ★ HERO 배경을 단색 블랙으로 강제 초기화 ★
-        ============================================ */
-        .hero,
-        .hero::before {
-            background: #000000 !important;
-            background-color: #000000 !important;
-            background-image: none !important;
-        }
-
-        .hero::before {
-            content: none !important;
         }
     </style>
 </head>
@@ -732,118 +708,122 @@
     <section id="projects">
         <h2 id="projects-title">Projects</h2>
 
-        <!-- 프로젝트 1 -->
-        <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project1.jpg" alt="ILLUST x RACE">
-                <div class="project-banner-info">
-                    <h3>ILLUST x RACE: 감성과 속도의 결합</h3>
-                    <p>
-                        붓의 질감과 레이스의 속도를 한 장면에 표현
-                        ILLUST의 감성과 RACE의 집중이 만나는 브랜드의 ‘진정한 리듬’을 전달합니다.
-                    </p>
-                    <div class="project-banner-tech">
-                        illustration (Adobe), stable diffusion online
+        <div class="projects-wrap">
+            <!-- 프로젝트 1 -->
+            <div class="project-fullwrap">
+                <div class="project-banner">
+                    <img src="images/project1.jpg" alt="ILLUST x RACE">
+                    <div class="project-banner-info">
+                        <h3>ILLUST x RACE: 감성과 속도의 결합</h3>
+                        <p>
+                            붓의 질감과 레이스의 속도를 한 장면에 표현하며,
+                            ILLUST의 감성과 RACE의 집중이 만나는 브랜드의 ‘진정한 리듬’을 전달합니다.
+                        </p>
+                        <div class="project-banner-tech">
+                            illustration (Adobe), stable diffusion online
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 프로젝트 2 -->
-        <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project2.jpg" alt="붓터치 속도감">
-                <div class="project-banner-info">
-                    <h3>붓터치 속도감을 담은 레드·블루 패턴</h3>
-                    <p>
-                        검은 바탕 위로 빨강·파랑·흰색의 거친 붓터치가 번개처럼 스치며 지나가듯 펼쳐진 그래픽
-                        격렬한 속도와 순간적인 에너지가 색의 흐름으로 변환되어, 레이싱 트랙을 지나가는 타이어 자국처럼 강렬한 리듬감을 형성한다.
-                    </p>
-                    <div class="project-banner-tech">
-                        illustration (Adobe), stable diffusion online
+            <!-- 프로젝트 2 -->
+            <div class="project-fullwrap">
+                <div class="project-banner">
+                    <img src="images/project2.jpg" alt="붓터치 속도감">
+                    <div class="project-banner-info">
+                        <h3>붓터치 속도감을 담은 레드·블루 패턴</h3>
+                        <p>
+                            검은 바탕 위로 빨강·파랑·흰색의 거친 붓터치가 번개처럼 스치며 지나가듯 펼쳐진 그래픽으로,
+                            격렬한 속도와 순간적인 에너지가 색의 흐름으로 변환되어 레이싱 트랙의 타이어 자국 같은 리듬감을 형성합니다.
+                        </p>
+                        <div class="project-banner-tech">
+                            illustration (Adobe), stable diffusion online
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 프로젝트 3 -->
-        <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project03.jpg" alt="일러스트레이스 서킷">
-                <div class="project-banner-info">
-                    <h3>붓터치 트레일로 속도를 기록하는 일러스트레이스 서킷 장면</h3>
-                    <p>
-                        레이싱카가 코너를 돌며 남긴 붉은·푸른 붓터치 트레일이 서킷 위에 선명히 펼쳐지고,
-                        '속도를 그림으로 기록한다'는 브랜드 철학을 시각적으로 드러내는 일러스트레이스의 대표 비주얼 이미지.
-                    </p>
-                    <div class="project-banner-tech">
-                        illustration (Adobe), stable diffusion online
+            <!-- 프로젝트 3 -->
+            <div class="project-fullwrap">
+                <div class="project-banner">
+                    <img src="images/project03.jpg" alt="일러스트레이스 서킷">
+                    <div class="project-banner-info">
+                        <h3>붓터치 트레일로 속도를 기록하는 일러스트레이스 서킷 장면</h3>
+                        <p>
+                            레이싱카가 코너를 돌며 남긴 붉은·푸른 붓터치 트레일이 서킷 위에 선명히 펼쳐지고,
+                            ‘속도를 그림으로 기록한다’는 브랜드 철학을 시각적으로 드러내는 대표 비주얼입니다.
+                        </p>
+                        <div class="project-banner-tech">
+                            illustration (Adobe), stable diffusion online
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 프로젝트 4 -->
-        <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project4.jpg" alt="크리에이티브 피트">
-                <div class="project-banner-info">
-                    <h3>레이싱과 아트가 공존하는 크리에이티브 피트</h3>
-                    <p>
-                        레이싱 피트 공간에 붓터치 패턴과 로고가 조화를 이루며 속도와 예술의 정체성을 시각적으로 표현한 장면.
-                    </p>
-                    <div class="project-banner-tech">
-                        illustration (Adobe), stable diffusion online
+            <!-- 프로젝트 4 -->
+            <div class="project-fullwrap">
+                <div class="project-banner">
+                    <img src="images/project4.jpg" alt="크리에이티브 피트">
+                    <div class="project-banner-info">
+                        <h3>레이싱과 아트가 공존하는 크리에이티브 피트</h3>
+                        <p>
+                            레이싱 피트 공간에 붓터치 패턴과 로고가 조화를 이루며,
+                            속도와 예술의 정체성을 하나의 장면으로 구현한 비주얼입니다.
+                        </p>
+                        <div class="project-banner-tech">
+                            illustration (Adobe), stable diffusion online
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 프로젝트 5 -->
-        <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project5.jpg" alt="일러스트레이스 캐릭터">
-                <div class="project-banner-info">
-                    <h3>일러스트레이스 대표 캐릭터 설명</h3>
-                    <p>
-                        ILLUSTRACE는 속도와 예술 사이를 오가는 레이싱 캐릭터이다.
-                        평소에는 조용하지만, 레이스가 시작되면 날카로운 집중력으로 순간의 움직임을 기록한다.
-                    </p>
-                    <div class="project-banner-tech">
-                        illustration (Adobe), stable diffusion online
+            <!-- 프로젝트 5 -->
+            <div class="project-fullwrap">
+                <div class="project-banner">
+                    <img src="images/project5.jpg" alt="일러스트레이스 캐릭터">
+                    <div class="project-banner-info">
+                        <h3>일러스트레이스 대표 캐릭터 설명</h3>
+                        <p>
+                            ILLUSTRACE는 속도와 예술 사이를 오가는 레이싱 캐릭터로,
+                            평소에는 조용하지만 레이스가 시작되면 날카로운 집중력으로 순간의 움직임을 기록합니다.
+                        </p>
+                        <div class="project-banner-tech">
+                            illustration (Adobe), stable diffusion online
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 프로젝트 6 -->
-        <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project6.jpg" alt="ILLUSTRACE PIT CREW">
-                <div class="project-banner-info">
-                    <h3>ILLUSTRACE PIT CREW: 2D의 세계를 넘어선 3D 팀 포트레이트</h3>
-                    <p>
-                        ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해, 실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트이다.
-                        기존 작업보다 세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장된 비주얼이다.
-                    </p>
-                    <div class="project-banner-tech">
-                        illustration (Adobe), stable diffusion online
+            <!-- 프로젝트 6 -->
+            <div class="project-fullwrap">
+                <div class="project-banner">
+                    <img src="images/project6.jpg" alt="ILLUSTRACE PIT CREW">
+                    <div class="project-banner-info">
+                        <h3>ILLUSTRACE PIT CREW: 2D의 세계를 넘어선 3D 팀 포트레이트</h3>
+                        <p>
+                            ILLUSTRACE의 2D 캐릭터들이 고퀄리티 3D로 재탄생해,
+                            실제 피트에서 단체 촬영한 듯한 레이싱 팀 포트레이트로 구현된 장면입니다.
+                            세밀한 질감과 조명이 더해져 브랜드 세계관이 한 단계 확장되었습니다.
+                        </p>
+                        <div class="project-banner-tech">
+                            illustration (Adobe), stable diffusion online
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 프로젝트 7 -->
-        <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project7.jpg" alt="ILLUSTRACE 창단">
-                <div class="project-banner-info">
-                    <h3>2026년 신생팀 탄생</h3>
-                    <p>
-                        붓터치의 리듬으로 달리는 팀, ILLUSTRACE — 2026 데뷔
-                    </p>
-                    <div class="project-banner-tech">
-                        illustration (Adobe), stable diffusion online
+            <!-- 프로젝트 7 -->
+            <div class="project-fullwrap">
+                <div class="project-banner">
+                    <img src="images/project7.jpg" alt="ILLUSTRACE 창단">
+                    <div class="project-banner-info">
+                        <h3>2026년 신생팀 탄생</h3>
+                        <p>
+                            붓터치의 리듬으로 달리는 팀, ILLUSTRACE — 2026 데뷔를 알리는 비주얼 포스터입니다.
+                        </p>
+                        <div class="project-banner-tech">
+                            illustration (Adobe), stable diffusion online
+                        </div>
                     </div>
                 </div>
             </div>
