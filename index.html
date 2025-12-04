@@ -230,10 +230,10 @@
            About Me 섹션
         ============================================ */
         .about-content {
-            display: flex;               /* 가로 배치 */
-            align-items: flex-start;     /* ★ 위쪽 기준으로 나란히 정렬 */
+            display: flex;
+            align-items: flex-start;      /* 위쪽 기준으로 정렬 */
             justify-content: flex-start;
-            gap: 80px;                   /* 이미지와 텍스트 사이 간격 */
+            gap: 80px;
         }
 
         .about-left {
@@ -241,7 +241,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            margin-top: 10px;           /* ★ 텍스트와 시각적으로 맞추기 위한 미세 조정값 */
+            margin-top: 25px;            /* ★ 프로필 블록을 조금 아래로 */
         }
 
         .about-image {
@@ -281,6 +281,13 @@
             flex-direction: column;
             gap: 18px;
             max-width: 620px;
+        }
+
+        /* About 제목은 설명글 컬럼 안의 중앙 위쪽에 */
+        #about h2 {
+            font-size: 40px;
+            margin-bottom: 32px;
+            text-align: center;          /* 설명글 박스 안에서 중앙 정렬 */
         }
 
         .about-text p {
@@ -552,6 +559,7 @@
 
             .hero-meta {
                 font-size: 11px;
+                letter-spacing: 2px;
             }
 
             .hero-buttons {
@@ -576,7 +584,7 @@
             }
 
             .about-left {
-                margin-top: 0;
+                margin-top: 0;   /* 모바일에서는 다시 기본 위치 */
             }
 
             .about-text {
@@ -667,7 +675,6 @@
 
     <!-- About Me -->
     <section id="about">
-        <h2>About Me</h2>
         <div class="about-content">
             <div class="about-left">
                 <img src="images/profile.jpg" alt="김창완 프로필 사진" class="about-image">
@@ -678,6 +685,7 @@
                 </div>
             </div>
             <div class="about-text">
+                <h2>About</h2>
                 <p>조용한 겉모습 뒤에 숨은 집중력으로, 속도의 순간을 그림으로 기록합니다.</p>
                 <p>레이싱의 정밀함과 일러스트의 감성을 연결하며, 움직임을 시각적 언어로 번역합니다.</p>
                 <p>예술과 퍼포먼스 사이에서 균형을 찾는 크리에이터로, ILLUSTRACE의 세계를 확장해갑니다.</p>
