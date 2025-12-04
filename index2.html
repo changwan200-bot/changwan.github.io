@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1 Detail</title>
+    <title>Project 1 – ILLUSTRACE Concept Visual</title>
 
     <style>
         body {
@@ -23,25 +23,48 @@
         .title {
             font-size: 32px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 35px;
+            opacity: 0.7;
         }
 
         .project-image {
             width: 100%;
             border-radius: 10px;
-            margin: 20px 0;
+            margin: 20px 0 40px 0;
             object-fit: cover;
         }
 
-        .description {
-            font-size: 18px;
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .section p,
+        .section ul {
+            font-size: 17px;
             line-height: 1.7;
-            margin-top: 20px;
+            color: #333;
+        }
+
+        .section ul {
+            margin-top: 8px;
+            padding-left: 20px;
         }
 
         .back {
             display: inline-block;
-            margin-top: 40px;
+            margin-top: 50px;
             padding: 12px 22px;
             background: #000;
             color: #fff;
@@ -58,17 +81,57 @@
 <body>
 
     <div class="container">
-        <div class="title">Project 1 – 상세 페이지</div>
 
+        <!-- 제목 -->
+        <div class="title">ILLUSTRACE – Concept Visual #01</div>
+        <div class="subtitle">Track & Brush Key Mood Visual</div>
+
+        <!-- 이미지 -->
         <img src="your_image_path/project1.jpg" class="project-image" alt="Project 1 Image">
 
-        <div class="description">
-            이 프로젝트는 예시 텍스트로, 상세 설명을 여기에 입력하면 됩니다.<br>
-            이미지 클릭 후 들어오는 전용 페이지로 구성되며, 프로젝트의 배경, 목적,
-            디자인 과정, 결과물 등을 자유롭게 정리할 수 있습니다.
+        <!-- 섹션 1 : 개요 -->
+        <div class="section">
+            <h3>개요</h3>
+            <p>
+                붓의 흐름과 레이스 트랙의 속도를 결합해 ILLUSTRACE만의 정체성을 표현한 무드 이미지입니다.
+                아스팔트의 거친 질감 위로 레드·블루 라인이 교차하며, 브랜드의 에너지와 예술적 감각을 동시에 드러냅니다.
+            </p>
         </div>
 
+        <!-- 섹션 2 : 컨셉 설명 -->
+        <div class="section">
+            <h3>컨셉 설명</h3>
+            <ul>
+                <li>아스팔트 텍스처를 통해 실제 레이스 트랙의 현장감을 강조</li>
+                <li>Red + Blue 라인은 속도·집중·스토리의 상징</li>
+                <li>브러시 스트로크처럼 해석된 트랙 라인은 예술성과 기술적 긴장감을 동시에 표현</li>
+                <li>로고 대비를 통해 브랜드의 존재감을 최상단에 배치</li>
+            </ul>
+        </div>
+
+        <!-- 섹션 3 : 디자인 포인트 -->
+        <div class="section">
+            <h3>디자인 포인트</h3>
+            <ul>
+                <li>현장감을 살리는 high-grain 아스팔트 입자 표현</li>
+                <li>Race Mode 시그니처 컬러(Signal Red, Jet Black, Blue Accent) 적용</li>
+                <li>텍스처 → 로고 → 방향성 빛의 흐름으로 이어지는 삼단 시선 구조</li>
+                <li>브랜드 무드를 대표하는 Key Visual로 확장 가능</li>
+            </ul>
+        </div>
+
+        <!-- 섹션 4 : 키 메시지 -->
+        <div class="section">
+            <h3>브랜드 메시지</h3>
+            <p>
+                ILLUSTRACE는 단순한 로고가 아니라, 속도와 예술이 공존하는 세계관을 구축하는 브랜드입니다.
+                이 이미지는 그 세계관을 시각적으로 여는 첫 장면입니다.
+            </p>
+        </div>
+
+        <!-- 뒤로가기 버튼 -->
         <a href="index.html" class="back">← 메인으로 돌아가기</a>
+
     </div>
 
 </body>
