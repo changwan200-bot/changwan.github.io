@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILLUSTRACE | Slogan Page</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system, BlinkMacSystemFont,'Noto Sans KR',sans-serif; line-height:1.7; color:#111; background:#fff; }
+        a { text-decoration:none; }
+
+        /* NAV */
+        nav {
+            position:fixed; top:0; left:0; right:0;
+            display:flex; justify-content:space-between; align-items:center;
+            padding:16px 5vw;
+            background:rgba(0,0,0,0.9);
+            z-index:1000;
+        }
+        nav .logo { color:#fff; font-weight:700; letter-spacing:3px; }
+        nav ul { list-style:none; display:flex; gap:28px; }
+        nav ul a { color:#fff; font-size:13px; }
+        nav ul a:hover { opacity:0.5; }
+
+        /* CONTENT */
+        main { padding-top:120px; max-width:900px; margin:0 auto; }
+        .section { margin-bottom:120px; }
+        .section h1,
+        .section h2 { text-align:center; margin-bottom:32px; }
+    </style>
+</head>
+
+<body>
+
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="logo">ILLUSTRACE</div>
+        <ul>
+            <li><a href="index.html">INTRO</a></li>
+            <li><a href="#">PATTERN</a></li>
+            <li><a href="slogan.html">SLOGAN</a></li>
+            <li><a href="#">SHARE</a></li>
+            <li><a href="#">ACTIVITY</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- 여기부터 너가 만든 슬로건 페이지 이미지와 구성 삽입 -->
+        <!-- 원하는 위치에 그대로 붙여넣으면 됨 -->
+
+        <div class="section">
+            <img src="images/slogan-hero.jpg" alt="Track Art Focus">
+        </div>
+
+        <div class="section">
+            <h1>Track - Trace the path of every story</h1>
+            <p>여기 슬로건 설명 텍스트… (너가 만든 내용 그대로 복붙)</p>
+        </div>
+
+        <div class="section">
+            <h1>Art - Turn movement into visual language</h1>
+            <p>여기 두번째 섹션 설명…</p>
+        </div>
+
+        <div class="section">
+            <h1>Focus - Silence before the speed</h1>
+            <p>여기 세번째 섹션 설명…</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
