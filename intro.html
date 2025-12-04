@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILLUSTRACE | Project 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* 상단 네비게이션 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 5vw;
+            background-color: rgba(0,0,0,0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+
+        .nav-logo span {
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.5;
+        }
+
+        /* 본문 레이아웃 */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 6vw 80px; /* 상단 nav 높이만큼 여백 */
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="nav-logo">
+            ILLUSTRACE <span>/ CHANGWAN KIM</span>
+        </div>
+        <ul>
+            <!-- 여기서 INTRO가 메인 페이지(index.html)로 이동 -->
+            <!-- 메인 파일 이름이 다르면 index.html 부분만 바꿔주면 됨 -->
+            <li><a href="index.html">INTRO</a></li>
+            <li><a href="#pattern">PATTERN</a></li>
+            <li><a href="#slogan">SLOGAN</a></li>
+            <li><a href="#share">SHARE</a></li>
+            <li><a href="#activity">ACTIVITY</a></li>
+        </ul>
+    </nav>
+
+    <!-- 상세 페이지 내용 (임시) -->
+    <main>
+        <h1>Project 1 – ILLUSTRACE Concept Visual</h1>
+        <p>여기는 project1 이미지를 클릭했을 때 열리는 상세 페이지입니다.</p>
+        <p>오른쪽 위 메뉴에서 <strong>INTRO</strong>를 클릭하면 메인 화면(포트폴리오 첫 페이지)로 이동합니다.</p>
+
+        <!-- 이후 여기부터 슬로건 페이지용 레이아웃, 이미지, 텍스트를 계속 채워 넣으면 됨 -->
+    </main>
+
+</body>
+</html>
