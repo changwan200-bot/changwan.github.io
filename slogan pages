@@ -209,8 +209,8 @@
 
     <!-- 상단 비주얼 -->
     <section class="hero-visual">
-        <!-- 슬로건 페이지 맨 위 큰 이미지: 파일명은 네가 쓰는 걸로 변경 -->
-        <img src="images/slogan-hero.jpg" alt="ILLUSTRACE Slogan Visual">
+        <!-- keyword0: 슬로건 상단 큰 이미지 -->
+        <img src="images/keyword0.png" alt="ILLUSTRACE Slogan Visual">
     </section>
 
     <!-- 상단 카피 -->
@@ -231,21 +231,21 @@
         <h2 class="keyword-title">Keyword</h2>
 
         <div class="keyword-grid">
-            <!-- Track 이미지 -->
+            <!-- Track 이미지: keyword1 -->
             <div class="keyword-item">
-                <img src="images/keyword-track.jpg" alt="Track Keyword">
+                <img src="images/keyword1.jpg" alt="Track Keyword">
                 <div class="keyword-hashtag">#Track</div>
             </div>
 
-            <!-- Art 이미지 -->
+            <!-- Art 이미지: keyword2 -->
             <div class="keyword-item">
-                <img src="images/keyword-art.jpg" alt="Art Keyword">
+                <img src="images/keyword2.jpg" alt="Art Keyword">
                 <div class="keyword-hashtag">#Art</div>
             </div>
 
-            <!-- Focus 이미지 -->
+            <!-- Focus 이미지: keyword3 -->
             <div class="keyword-item">
-                <img src="images/keyword-focus.jpg" alt="Focus Keyword">
+                <img src="images/keyword3.png" alt="Focus Keyword">
                 <div class="keyword-hashtag">#Focus</div>
             </div>
         </div>
