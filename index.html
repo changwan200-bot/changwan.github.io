@@ -854,40 +854,45 @@
 
     <!-- JS -->
     <script>
-        // 네비게이션 링크 부드러운 스크롤
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    // 네비게이션 링크 부드러운 스크롤 + 외부 링크 이동 허용
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
 
-        // 스크롤 시 네비게이션 배경 조절
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            if (currentScroll > 40) {
-                nav.classList.add('nav-solid');
-            } else {
-                nav.classList.remove('nav-solid');
+            // #으로 시작하지 않으면 새로운 페이지로 이동함
+            if (!href.startsWith('#')) {
+                return; // 기본 동작 그대로
+            }
+
+            // #으로 시작하는 앵커는 부드러운 스크롤
+            e.preventDefault();
+            const targetSection = document.querySelector(href);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
+    });
 
-        // 페이지 로드 페이드인
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.5s ease';
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-    </script>
-</body>
-</html>
+    // 스크롤 시 네비게이션 배경 조절
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > 40) {
+            nav.classList.add('nav-solid');
+        } else {
+            nav.classList.remove('nav-solid');
+        }
+    });
+
+    // 페이지 로드 페이드인
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            document.body.style.transition = 'opacity 0.5s ease';
+            document.body.style.opacity = '1';
+        }, 100);
+    });
+</script>
