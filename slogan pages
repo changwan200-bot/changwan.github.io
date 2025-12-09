@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ILLUSTRACE 슬로건 & 키워드 – Track, Art, Focus">
+    <title>ILLUSTRACE | Slogan & Keywords</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            color: #111;
+            background-color: #ffffff;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        /* ---------- HERO 영역 ---------- */
+        .hero-visual {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .hero-copy-wrap {
+            padding: 40px 6vw 60px;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 22px;
+        }
+
+        .hero-body {
+            font-size: 15px;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* ---------- KEYWORD 썸네일 ---------- */
+        .keyword-section {
+            padding: 40px 6vw 60px;
+            text-align: center;
+        }
+
+        .keyword-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .keyword-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 10px;
+        }
+
+        .keyword-item {
+            max-width: 260px;
+        }
+
+        .keyword-hashtag {
+            margin-top: 14px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* ---------- TRACK / ART / FOCUS 상세 ---------- */
+        .keyword-detail {
+            padding: 60px 6vw;
+            text-align: center;
+        }
+
+        .keyword-detail-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .keyword-detail-title span.en-sub {
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .keyword-detail-title strong {
+            font-weight: 700;
+        }
+
+        .keyword-detail-ko {
+            font-size: 15px;
+            margin: 20px auto 10px;
+            max-width: 720px;
+        }
+
+        .keyword-detail-en {
+            font-size: 13px;
+            margin: 8px auto 0;
+            max-width: 720px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        /* ---------- Visit Website 버튼 ---------- */
+        .cta-section {
+            padding: 80px 6vw 60px;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 60px;
+            border: 2px solid #000;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #000;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- 하단 네비 + 푸터 ---------- */
+        .bottom-nav {
+            margin-top: 40px;
+            margin-bottom: 14px;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+        }
+
+        .bottom-nav a {
+            margin: 0 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0 40px;
+            font-size: 11px;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+
+        footer a {
+            color: #777;
+        }
+
+        /* ---------- 반응형 ---------- */
+        @media (max-width: 768px) {
+            .hero-copy-wrap {
+                padding: 28px 6vw 40px;
+            }
+
+            .hero-headline {
+                font-size: 17px;
+            }
+
+            .keyword-title {
+                font-size: 28px;
+            }
+
+            .keyword-detail {
+                padding: 40px 6vw;
+            }
+
+            .keyword-detail-title {
+                font-size: 26px;
+            }
+
+            .keyword-detail-title span.en-sub {
+                display: block;
+                font-size: 18px;
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+
+    <!-- 상단 비주얼 -->
+    <section class="hero-visual">
+        <!-- 슬로건 페이지 맨 위 큰 이미지: 파일명은 네가 쓰는 걸로 변경 -->
+        <img src="images/slogan-hero.jpg" alt="ILLUSTRACE Slogan Visual">
+    </section>
+
+    <!-- 상단 카피 -->
+    <section class="hero-copy-wrap">
+        <h1 class="hero-headline">
+            ILLUSTRACE는 속도를 단순한 수치가 아닌 ‘기록할 가치가 있는 감각’으로 바라봅니다.
+        </h1>
+        <p class="hero-body">
+            우리는 트랙 위에서 순간적으로 지나가는 리마인드 에너지와 붓의 결을 포착하며,
+            레이싱의 집중과 예술의 해석이 만나는 새로운 장면을 만듭니다.
+            달리는 동안 느껴지는 긴장, 폭발, 여운까지 모든 속도의 흔적을 시각적 언어로 남기는 것이
+            ILLUSTRACE가 추구하는 경험입니다.
+        </p>
+    </section>
+
+    <!-- KEYWORD 썸네일 섹션 -->
+    <section class="keyword-section">
+        <h2 class="keyword-title">Keyword</h2>
+
+        <div class="keyword-grid">
+            <!-- Track 이미지 -->
+            <div class="keyword-item">
+                <img src="images/keyword-track.jpg" alt="Track Keyword">
+                <div class="keyword-hashtag">#Track</div>
+            </div>
+
+            <!-- Art 이미지 -->
+            <div class="keyword-item">
+                <img src="images/keyword-art.jpg" alt="Art Keyword">
+                <div class="keyword-hashtag">#Art</div>
+            </div>
+
+            <!-- Focus 이미지 -->
+            <div class="keyword-item">
+                <img src="images/keyword-focus.jpg" alt="Focus Keyword">
+                <div class="keyword-hashtag">#Focus</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRACK 상세 -->
+    <section class="keyword-detail" id="track">
+        <h3 class="keyword-detail-title">
+            <strong>Track</strong> <span class="en-sub">- Trace the path of every story</span>
+        </h3>
+        <p class="keyword-detail-ko">
+            속도를 만드는 모든 순간은 트랙 위에서 시작됩니다.<br>
+            ILLUSTRACE는 이 길을 단순한 코스가 아닌, 흔적이 기록되는 무대로 바라봅니다.<br>
+            우리가 지나간 선과 자국은 곧 우리의 서사가 됩니다.
+        </p>
+        <p class="keyword-detail-en">
+            Every moment of speed-making starts on the track.<br>
+            ILLUSTRACE sees this path as a stage where traces are recorded, not just a course.<br>
+            The line we pass becomes our narrative.
+        </p>
+    </section>
+
+    <!-- ART 상세 -->
+    <section class="keyword-detail" id="art">
+        <h3 class="keyword-detail-title">
+            <strong>Art</strong> <span class="en-sub">- Turn movement into visual language</span>
+        </h3>
+        <p class="keyword-detail-ko">
+            레이싱의 흐름, 긴장, 폭발, 여운까지<br>
+            우리는 그 모든 운동의 감각을 시각적 형태로 번역합니다.<br>
+            예술은 속도와 감정이 만나는 지점입니다.
+        </p>
+        <p class="keyword-detail-en">
+            The flow of racing, the tension, the explosion, and the afterglow —<br>
+            we translate the senses of all those movements into visual forms.<br>
+            Art is the point where speed and emotion meet.
+        </p>
+    </section>
+
+    <!-- FOCUS 상세 -->
+    <section class="keyword-detail" id="focus">
+        <h3 class="keyword-detail-title">
+            <strong>Focus</strong> <span class="en-sub">- Silence before the speed</span>
+        </h3>
+        <p class="keyword-detail-ko">
+            혼란스러운 속도 속에서도 단 하나의 선만을 바라봅니다.<br>
+            조용한 외면과 달리, 내면은 누구보다 선명한 집중으로 깨어 있습니다.<br>
+            우리는 그 몰입이 만들어내는 순간의 에너지를 추구합니다.
+        </p>
+        <p class="keyword-detail-en">
+            I look at only one line even at a chaotic speed.<br>
+            Unlike the quiet exterior, the inside is awake with sharper concentration than anyone else.<br>
+            We seek the energy of the moment that this immersion creates.
+        </p>
+    </section>
+
+    <!-- VISIT WEBSITE 버튼 -->
+    <section class="cta-section">
+        <a class="cta-button" href="https://changwan200-bot.github.io/changwan.github.io/" target="_blank">
+            Visit Website
+        </a>
+
+        <div class="bottom-nav">
+            <a href="https://changwan200-bot.github.io/changwan.github.io/#home">HOME</a>
+            <a href="https://changwan200-bot.github.io/changwan.github.io/#about">ABOUT</a>
+            <a href="https://changwan200-bot.github.io/changwan.github.io/#skills">SKILLS</a>
+            <a href="https://changwan200-bot.github.io/changwan.github.io/#projects">PROJECTS</a>
+            <a href="https://changwan200-bot.github.io/changwan.github.io/#contact">CONTACT</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 김창완. Powered by AI Portfolio Workshop.
+    </footer>
+
+</main>
+</body>
+</html>
