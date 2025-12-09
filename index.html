@@ -625,18 +625,24 @@
 </head>
 <body>
     <!-- 네비게이션 -->
-    <nav>
-        <div class="nav-logo">
-            ILLUSTRACE <span>/ CHANGWAN KIM</span>
-        </div>
-        <ul>
-            <!-- HOME, ABOUT, SKILLS, PROJECTS, CONTACT → Home, Introduce, Slogan, Character -->
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#Intorduce">Introduce</a></li>
-            <li><a href="#Slogan">Slogan</a></li>
-            <li><a href="#Character">Chararcter</a></li>
-        </ul>
-    </nav>
+   <nav>
+    <div class="nav-logo">
+        ILLUSTRACE <span>/ CHANGWAN KIM</span>
+    </div>
+    <ul>
+        <!-- HOME → #home 섹션으로 스크롤 -->
+        <li><a href="#home">Home</a></li>
+
+        <!-- Introduce → #about 섹션으로 스크롤 -->
+        <li><a href="#about">Introduce</a></li>
+
+        <!-- Slogan → 별도 페이지로 이동 -->
+        <li><a href="slogan.html">Slogan</a></li>
+
+        <!-- Character → 나중에 섹션 만들기 전까진 일단 contact 쪽으로 연결 예시 -->
+        <li><a href="#contact">Character</a></li>
+    </ul>
+</nav>
 
     <!-- 히어로 -->
     <section id="home" class="hero">
