@@ -50,7 +50,7 @@
             letter-spacing: 0.5px;
             color: #ffffff;
             transition: background-color 0.3s ease, color 0.3s ease;
-            background-color: rgba(0, 0, 0, 0.9); /* 항상 검정 배경 */
+            background-color: rgba(0, 0, 0, 0.9);
         }
 
         nav ul {
@@ -151,6 +151,27 @@
         .figure-caption {
             font-size: 15px;
             text-align: center;
+            line-height: 1.8;
+        }
+
+        /* ===========================
+           TEAM VISUAL
+        ============================ */
+        .team-image-wrap {
+            margin: 40px 0 24px;
+        }
+
+        .quote-ko {
+            font-size: 17px;
+            text-align: center;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .quote-en {
+            font-size: 13px;
+            text-align: center;
+            color: #555555;
             line-height: 1.8;
         }
 
@@ -278,6 +299,7 @@
         <section class="section">
             <h2 class="sub-title">3D 버전 캐릭터</h2>
 
+            <!-- 3D 캐릭터 회전 뷰 -->
             <div class="figure-grid">
                 <div>
                     <img src="images/project9.png" alt="ILLUSTRACE 3D 캐릭터 정면">
@@ -290,9 +312,38 @@
                 </div>
             </div>
 
+            <!-- 정면 메인 컷 -->
             <div class="figure-box-wrap">
                 <img src="images/project12.png" alt="ILLUSTRACE 3D 캐릭터 전체 뷰">
             </div>
+        </section>
+
+        <!-- TEAM VISUAL & 문구 섹션 -->
+        <section class="section">
+
+            <!-- 3D 피규어 설명 문단 -->
+            <p class="quote-ko">
+                “ILLUSTRACE 3D 피규어는 브랜드의 속도감과 감성을 함께 담은 대표 굿즈입니다.<br>
+                매트한 질감의 파스텔 블루 톤, 균형 잡힌 레이싱 수트 디자인,<br>
+                그리고 손에 든 헬멧은 팀의 퍼포먼스 정신을 그대로 표현합니다.<br>
+                어디에 두어도 브랜드의 에너지와 정체성이 자연스럽게 드러나는 오브젝트입니다.”
+            </p>
+
+            <!-- 팀 전체 이미지 -->
+            <div class="team-image-wrap">
+                <img src="images/project06.png" alt="ILLUSTRACE 팀 마스코트 피규어 라인업">
+            </div>
+
+            <!-- 아래 카피 문구 -->
+            <p class="quote-ko">
+                “서로 다른 개성을 가진 레이서들이 모여 ILLUSTRACE만의 퍼포먼스를 완성합니다.<br>
+                집중과 정확성을 상징하는 중심으로, 팀은 하나의 리듬으로 달립니다.”
+            </p>
+
+            <p class="quote-en">
+                "Racers with different personalities come together to complete ILLUSTRACE's unique performance.<br>
+                With a center that symbolizes focus and accuracy, the team runs in one rhythm."
+            </p>
         </section>
 
     </main>
