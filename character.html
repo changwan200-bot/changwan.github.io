@@ -34,7 +34,7 @@
         }
 
         /* ===========================
-           NAVIGATION (introduce와 동일)
+           NAVIGATION (오른쪽 정렬)
         ============================ */
         nav {
             position: fixed;
@@ -43,7 +43,7 @@
             right: 0;
             z-index: 1000;
             display: flex;
-            justify-content: flex-end;   /* 오른쪽 정렬 */
+            justify-content: flex-end;  /* 🔥 오른쪽 정렬 강제 */
             align-items: center;
             padding: 16px 5vw;
             font-size: 14px;
@@ -78,10 +78,9 @@
             position: relative;
             width: 100%;
             height: 420px;
-            background-image: url("images/profile.jpg"); /* 캐릭터 메인 */
-            background-position: center center;
+            background-image: url("images/profile.jpg");
+            background-position: center;
             background-size: cover;
-            background-repeat: no-repeat;
         }
 
         .hero-overlay {
@@ -89,8 +88,8 @@
             inset: 0;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 0.55),
-                rgba(0, 0, 0, 0.1)
+                rgba(0,0,0,0.55),
+                rgba(0,0,0,0.1)
             );
         }
 
@@ -114,16 +113,15 @@
 
         .hero-eyebrow {
             font-size: 13px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
             opacity: 0.8;
+            letter-spacing: 0.18em;
             margin-bottom: 10px;
         }
 
         .hero-title {
             font-size: 32px;
-            line-height: 1.2;
             font-weight: 700;
+            line-height: 1.2;
             margin-bottom: 14px;
         }
 
@@ -136,11 +134,6 @@
             font-size: 13px;
             text-align: right;
             opacity: 0.9;
-        }
-
-        .hero-meta span.label {
-            opacity: 0.7;
-            margin-right: 6px;
         }
 
         /* ===========================
@@ -158,13 +151,8 @@
 
         .section-title {
             font-size: 28px;
-            line-height: 1.4;
             font-weight: 700;
             margin-bottom: 24px;
-        }
-
-        .section-title span.en {
-            font-weight: 500;
         }
 
         .section-lead {
@@ -173,27 +161,22 @@
         }
 
         .muted {
-            color: #666666;
+            color: #666;
         }
 
         /* ===========================
-           CHARACTER PROFILE
+           PROFILE AREA
         ============================ */
         .profile-layout {
             display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+            grid-template-columns: 2fr 3fr;
             gap: 40px;
-            align-items: flex-start;
         }
 
         .profile-image-wrap {
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-        }
-
-        .profile-text-block {
-            font-size: 15px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
         }
 
         .profile-text-block p + p {
@@ -202,18 +185,15 @@
 
         .profile-meta-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px 24px;
             margin-top: 24px;
-            font-size: 14px;
         }
 
         .meta-label {
             font-size: 12px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
             opacity: 0.6;
-            margin-bottom: 4px;
+            letter-spacing: 0.18em;
         }
 
         .meta-value {
@@ -221,37 +201,31 @@
         }
 
         /* ===========================
-           VISUAL KEYWORDS / STATE
+           KEYWORDS / STATES
         ============================ */
         .pill-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .pill {
             padding: 6px 14px;
             border-radius: 999px;
-            border: 1px solid #dddddd;
+            border: 1px solid #ddd;
             font-size: 12px;
         }
 
         .state-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-top: 20px;
-            font-size: 14px;
         }
 
         .state-block-title {
-            font-size: 14px;
             font-weight: 600;
             margin-bottom: 6px;
-        }
-
-        .state-block-desc {
             font-size: 14px;
         }
 
@@ -260,36 +234,30 @@
         ============================ */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
         .gallery-item {
             border-radius: 12px;
             overflow: hidden;
-            background-color: #f4f4f4;
+            background-color: #f5f5f5;
             position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .gallery-caption {
             position: absolute;
             left: 10px;
             bottom: 10px;
+            background: rgba(0,0,0,0.65);
             padding: 4px 10px;
-            border-radius: 999px;
-            background-color: rgba(0, 0, 0, 0.65);
-            color: #ffffff;
             font-size: 11px;
+            color: white;
+            border-radius: 999px;
         }
 
         /* ===========================
-           BOTTOM NAV & FOOTER
+           FOOTER
         ============================ */
         .bottom-nav {
             border-top: 1px solid #e0e0e0;
@@ -298,77 +266,16 @@
         }
 
         .bottom-nav ul {
-            list-style: none;
             display: inline-flex;
             gap: 28px;
-            font-size: 14px;
-        }
-
-        .bottom-nav a:hover {
-            opacity: 0.7;
+            list-style: none;
         }
 
         footer {
             text-align: center;
             font-size: 12px;
-            color: #777777;
-            padding: 16px 0 40px;
-        }
-
-        /* ===========================
-           RESPONSIVE
-        ============================ */
-        @media (max-width: 900px) {
-            .hero-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-end;
-                padding: 110px 6vw 30px;
-            }
-
-            .hero-meta {
-                text-align: left;
-            }
-
-            .profile-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .state-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                justify-content: flex-end;
-                padding: 12px 16px;
-            }
-
-            nav ul {
-                gap: 18px;
-                font-size: 13px;
-            }
-
-            .hero {
-                height: 320px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .state-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            color: #777;
+            padding: 20px 0 40px;
         }
     </style>
 </head>
@@ -391,13 +298,9 @@
         <div class="hero-inner">
             <div class="hero-title-block">
                 <div class="hero-eyebrow">ILLUSTRACE CHARACTER</div>
-                <h1 class="hero-title">
-                    조용한 시점에서<br>
-                    속도를 기록하는 고양이
-                </h1>
+                <h1 class="hero-title">조용한 시점에서 속도를 기록하는 고양이</h1>
                 <p class="hero-sub">
-                    평소에는 차분한 관찰자이지만, 헬멧을 쓰고 트랙에 서는 순간 시야가 날카롭게 변하는 레이싱 캐릭터입니다.
-                    ‘나는 달리고, 그 속도를 그림으로 기록한다’는 브랜드의 모토를 시각적으로 구현하는 존재입니다.
+                    일상에서는 조용한 관찰자이지만, 트랙에서는 집중력이 폭발하는 듀얼 모드의 캐릭터입니다.
                 </p>
             </div>
 
@@ -409,39 +312,28 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN -->
     <main class="page-wrap">
 
-        <!-- CHARACTER PROFILE -->
-        <section class="section" id="character-profile">
-            <h2 class="section-title">
-                캐릭터 설정 <span class="en">(Character Profile)</span>
-            </h2>
+        <!-- PROFILE -->
+        <section class="section">
+            <h2 class="section-title">캐릭터 설정</h2>
 
             <div class="profile-layout">
-                <!-- LEFT: MAIN IMAGE -->
                 <div class="profile-image-wrap">
-                    <img src="images/profile.jpg" alt="ILLUSTRACE 캐릭터 프로필 이미지">
+                    <img src="images/profile.jpg">
                 </div>
 
-                <!-- RIGHT: TEXT -->
                 <div class="profile-text-block">
-                    <p class="section-lead">
-                        ILLUSTRACE의 메인 캐릭터는 조용한 성격의 고양이 레이서입니다.  
-                        일상에서는 감정을 크게 드러내지 않고 주변을 관찰하며, 머릿속으로 계속해서
-                        속도와 동선, 리듬을 계산하고 있습니다.
-                    </p>
-                    <p class="section-lead">
-                        헬멧을 쓰고 트랙 위에 서는 순간, 이 고양이의 눈빛은 완전히 달라집니다.  
-                        시야는 좁고 선명해지고, 브레이킹 포인트와 라인, 라이벌의 움직임까지
-                        하나의 그림처럼 받아들입니다. 그 집중 상태 자체가 ILLUSTRACE가 말하는
-                        ‘Race as Art’의 출발점입니다.
+                    <p>
+                        ILLUSTRACE의 메인 캐릭터는 조용한 성격의 고양이 레이서입니다.<br>
+                        헬멧을 착용하는 순간 표정과 시야가 날카롭게 바뀌며, 속도를 예술처럼 기록합니다.
                     </p>
 
                     <div class="profile-meta-grid">
                         <div>
                             <div class="meta-label">SPECIES</div>
-                            <div class="meta-value">Cat · SD Proportion</div>
+                            <div class="meta-value">Cat · SD Style</div>
                         </div>
                         <div>
                             <div class="meta-label">MOOD</div>
@@ -453,100 +345,76 @@
                         </div>
                         <div>
                             <div class="meta-label">ROLE IN BRAND</div>
-                            <div class="meta-value">Racing Avatar &amp; Narrator</div>
+                            <div class="meta-value">Racing Avatar & Narrator</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- VISUAL KEYWORDS / STATES -->
-        <section class="section" id="character-visual">
-            <h2 class="section-title">
-                비주얼 키워드 <span class="en">(Visual Keywords &amp; States)</span>
-            </h2>
+        <!-- VISUAL STATES -->
+        <section class="section">
+            <h2 class="section-title">비주얼 키워드 / 상태</h2>
 
             <div class="pill-row">
-                <span class="pill">Pastel Blue · Calm</span>
-                <span class="pill">Signal Red · Race Mode</span>
-                <span class="pill">Black &amp; Silver Suit</span>
-                <span class="pill">Track Line Tail</span>
+                <span class="pill">Pastel Blue</span>
+                <span class="pill">Signal Red (Race Mode)</span>
+                <span class="pill">Black & Silver Suit</span>
+                <span class="pill">Track Tail</span>
                 <span class="pill">Dual Personality</span>
             </div>
-
-            <p class="section-lead muted">
-                캐릭터의 겉모습은 파스텔 톤에 가까운 고양이지만, 레이스 모드에서는 제네레이션 카의
-                시그널 레드와 블랙, 메탈릭 실버가 강하게 드러납니다. 꼬리는 트랙 라인을 형상화해,
-                브랜드의 로고와 패턴 시스템과 자연스럽게 연결되도록 설계되었습니다.
-            </p>
 
             <div class="state-grid">
                 <div>
                     <div class="state-block-title">01 · Daily Mode</div>
-                    <div class="state-block-desc">
-                        부드러운 파스텔 블루 톤, 비교적 둥근 실루엣, 조용한 표정이 중심이 됩니다.
-                        관찰자이자 기록자로서 레이스를 준비하는 상태입니다.
-                    </div>
+                    <p>부드럽고 차분한 파스텔 톤의 평상시 모습.</p>
                 </div>
 
                 <div>
                     <div class="state-block-title">02 · Race Mode</div>
-                    <div class="state-block-desc">
-                        헬멧과 슈트를 착용하면 눈매가 날카롭게 바뀌고, 포즈도 더 기울어진 다이내믹한 자세를 취합니다.
-                        붓질처럼 보이는 속도 라인이 몸 주변을 감싸며 스피드를 강조합니다.
-                    </div>
+                    <p>헬멧을 착용하면 시야가 집중되고 눈빛이 예리해집니다.</p>
                 </div>
 
                 <div>
                     <div class="state-block-title">03 · Recording Mode</div>
-                    <div class="state-block-desc">
-                        레이스가 끝난 후, 그날의 속도와 감각을 스케치북이나 디지털 화면에 옮기는 장면입니다.
-                        이 모드에서 ILLUSTRACE의 ‘시각 디자이너’ 정체성이 가장 두드러집니다.
-                    </div>
+                    <p>속도를 예술처럼 시각화하는 브랜드의 상징적 모드.</p>
                 </div>
             </div>
         </section>
 
         <!-- GALLERY -->
-        <section class="section" id="character-gallery">
-            <h2 class="section-title">
-                캐릭터 비주얼 갤러리 <span class="en">(Character Visual Gallery)</span>
-            </h2>
-
-            <p class="section-lead muted">
-                아래 이미지는 캐릭터의 다양한 포즈와 무드를 실험한 결과물로,  
-                웹사이트, 포스터, 모션 그래픽 등 향후 확장될 ILLUSTRACE 월드의 베이스 자산이 됩니다.
-            </p>
+        <section class="section">
+            <h2 class="section-title">캐릭터 비주얼 갤러리</h2>
 
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/project06.jpg" alt="캐릭터 레이싱 포즈 01">
+                    <img src="images/project06.jpg">
                     <div class="gallery-caption">RACE MODE – FRONT</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/project8.jpg" alt="캐릭터 레이싱 포즈 02">
+                    <img src="images/project8.jpg">
                     <div class="gallery-caption">RACE MODE – DYNAMIC</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/project9.jpg" alt="캐릭터 일상 모드">
+                    <img src="images/project9.jpg">
                     <div class="gallery-caption">DAILY MODE – CALM</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/project10.jpg" alt="캐릭터 포즈 실험 01">
+                    <img src="images/project10.jpg">
                     <div class="gallery-caption">POSE STUDY – 01</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/project11.jpg" alt="캐릭터 포즈 실험 02">
+                    <img src="images/project11.jpg">
                     <div class="gallery-caption">POSE STUDY – 02</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/project12.jpg" alt="캐릭터 포즈 실험 03">
+                    <img src="images/project12.jpg">
                     <div class="gallery-caption">POSE STUDY – 03</div>
                 </div>
             </div>
         </section>
 
-        <!-- BOTTOM NAV -->
+        <!-- FOOTER -->
         <div class="bottom-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -559,17 +427,14 @@
         <footer>
             © 2025 김창완. Powered by AI Portfolio Workshop.
         </footer>
+
     </main>
 
     <script>
-        // 상단 네비게이션 스크롤 시 어두워짐
         const nav = document.getElementById('top-nav');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                nav.classList.add('nav-solid');
-            } else {
-                nav.classList.remove('nav-solid');
-            }
+            if (window.scrollY > 40) nav.classList.add('nav-solid');
+            else nav.classList.remove('nav-solid');
         });
     </script>
 
