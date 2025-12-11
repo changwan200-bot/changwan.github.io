@@ -102,6 +102,7 @@
             padding: 0 5vw;
             display: flex;
             align-items: center;
+            justify-content: space-between; /* 텍스트/이미지 양쪽 배치 */
             color: #FFFFFF;
             background-color: #000000;
             background-image: none;
@@ -113,7 +114,7 @@
         .hero-inner {
             position: relative;
             z-index: 1;
-            max-width: 840px;
+            max-width: 640px; /* 왼쪽 텍스트 영역 폭 조정 */
         }
 
         .hero-tag {
@@ -211,6 +212,23 @@
             margin-top: 20px;
             font-size: 13px;
             opacity: 0.7;
+        }
+
+        /* ===== 히어로 오른쪽 비주얼 이미지 ===== */
+        .hero-visual {
+            position: relative;
+            flex: 0 0 420px;           /* 오른쪽 영역 폭 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;      /* 클릭 방해 안 하게 */
+        }
+
+        .hero-visual img {
+            width: 100%;
+            max-width: 420px;
+            opacity: 0.7;              /* 불투명도 70% */
+            mix-blend-mode: overlay;   /* 오버레이 효과 */
         }
 
         /* ============================================
@@ -371,7 +389,7 @@
             left: 6%;
             bottom: 12%;
             color: #ffffff;
-            max-width: 60%; /* ← 문장이 너무 잘게 안 끊기도록 폭 넓힘 */
+            max-width: 60%;
             text-shadow: 0 2px 6px rgba(0,0,0,0.7);
         }
 
@@ -538,7 +556,24 @@
 
             .hero {
                 background-attachment: scroll;
-                padding: 0 16px;
+                padding: 80px 16px 40px;
+                flex-direction: column;      /* 텍스트/이미지 세로 배치 */
+                align-items: flex-start;
+            }
+
+            .hero-inner {
+                max-width: 100%;
+            }
+
+            .hero-visual {
+                flex: 0 0 auto;
+                margin-top: 32px;
+                align-self: center;
+            }
+
+            .hero-visual img {
+                max-width: 260px;
+                mix-blend-mode: normal;     /* 모바일에서는 좀 더 선명하게 */
             }
 
             .hero-title-main {
@@ -669,6 +704,11 @@
             <div class="hero-note">
                 스크롤해서 ILLUSTRACE의 세계를 더 둘러보세요.
             </div>
+        </div>
+
+        <!-- 오른쪽 오버레이 프로필 이미지 -->
+        <div class="hero-visual">
+            <img src="images/background-profile.png" alt="ILLUSTRACE 레이싱 프로필">
         </div>
     </section>
 
