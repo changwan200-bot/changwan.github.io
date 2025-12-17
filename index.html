@@ -70,13 +70,10 @@
             justify-content: space-between;
             background-color: #000;
             color: #fff;
-            overflow: hidden; /* ★ 이미지 튀어나오는 문제 해결 */
+            overflow: hidden;
         }
 
-        .hero-inner {
-            max-width: 50%;
-            z-index: 5;
-        }
+        .hero-inner { max-width: 50%; z-index: 5; }
 
         .hero-tag {
             font-size: 16px;
@@ -93,11 +90,7 @@
             margin-bottom: 22px;
         }
 
-        .hero-title-sub {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 28px;
-        }
+        .hero-title-sub { font-size: 20px; opacity: 0.9; margin-bottom: 28px; }
 
         .hero-body {
             font-size: 16px;
@@ -114,10 +107,7 @@
             margin-bottom: 30px;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-        }
+        .hero-buttons { display: flex; gap: 16px; }
 
         .btn-hero {
             padding: 14px 32px;
@@ -138,9 +128,8 @@
 
         .hero-note { margin-top: 20px; font-size: 13px; opacity: 0.7; }
 
-        /* === Hero 오른쪽 이미지 === */
         .hero-visual {
-            width: 32%;                /* ★ 더 작게 */
+            width: 32%;
             height: 100%;
             display: flex;
             align-items: center;
@@ -149,7 +138,7 @@
         }
 
         .hero-visual img {
-            max-height: 85%;            /* ★ 이미지 크기 제한 */
+            max-height: 85%;
             width: auto;
             object-fit: contain;
         }
@@ -163,11 +152,7 @@
             padding: 120px 6vw;
         }
 
-        h2 {
-            font-size: 48px;
-            margin-bottom: 60px;
-            text-align: center;
-        }
+        h2 { font-size: 48px; margin-bottom: 60px; text-align: center; }
 
         /* =====================================
            ABOUT
@@ -216,9 +201,20 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.4s ease;
+            object-position: center;
+            transition: transform 0.4s ease;
+            transform: scale(1);
         }
         .project-banner:hover img { transform: scale(1.03); }
+
+        /* ✅ project2만 “여백 때문에 작아 보이는” 문제 보정 */
+        .project-banner.project2 img {
+            transform: scale(1.12);         /* 필요하면 1.08~1.20 사이로 조절 */
+            object-position: center;
+        }
+        .project-banner.project2:hover img {
+            transform: scale(1.15);
+        }
 
         .project-banner-info {
             position: absolute;
@@ -254,7 +250,6 @@
 
 <body>
 
-<!-- NAV -->
 <nav>
     <div class="nav-logo">ILLUSTRACE <span>/ CHANGWAN KIM</span></div>
     <ul>
@@ -265,7 +260,6 @@
     </ul>
 </nav>
 
-<!-- HERO -->
 <section id="home" class="hero">
 
     <div class="hero-inner">
@@ -294,17 +288,15 @@
         <div class="hero-note">스크롤해서 ILLUSTRACE의 세계를 더 둘러보세요.</div>
     </div>
 
-    <!-- RIGHT IMAGE -->
     <div class="hero-visual">
         <img src="images/background-profile2.jpg" alt="ILLUSTRACE Racing Portrait">
     </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
     <h2>About</h2>
     <div class="about-content">
-        <img src="images/profile01.jpg" class="about-image">
+        <img src="images/profile01.jpg" class="about-image" alt="profile">
         <div class="about-text">
             <p>조용한 겉모습 뒤 집중력으로 속도의 순간을 기록합니다.</p>
             <p>레이싱의 정밀함과 일러스트 감성을 결합하여 움직임을 시각적 언어로 번역합니다.</p>
@@ -313,7 +305,6 @@
     </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
     <h2>Projects</h2>
 
@@ -321,7 +312,7 @@
 
         <div class="project-fullwrap">
             <div class="project-banner">
-                <img src="images/project1.jpg">
+                <img src="images/project1.jpg" alt="project1">
                 <div class="project-banner-info">
                     <h3>ILLUST x RACE: 감성과 속도의 결합</h3>
                     <p>붓의 질감과 레이스의 속도를 한 장면에 표현하며 ILLUST의 감성과 집중이 만나는 브랜드의 리듬을 전달합니다.</p>
@@ -330,8 +321,9 @@
         </div>
 
         <div class="project-fullwrap">
-            <div class="project-banner">
-                <img src="images/project2.png">
+            <!-- ✅ 여기만 class="project2" 추가 -->
+            <div class="project-banner project2">
+                <img src="images/project2.png" alt="project2">
                 <div class="project-banner-info">
                     <h3>붓터치 속도감을 담은 레드·블루 패턴</h3>
                     <p>빨강·파랑의 거친 붓터치로 속도감과 에너지를 시각적으로 표현한 그래픽입니다.</p>
@@ -341,7 +333,7 @@
 
         <div class="project-fullwrap">
             <div class="project-banner">
-                <img src="images/project03.jpg">
+                <img src="images/project03.jpg" alt="project03">
                 <div class="project-banner-info">
                     <h3>붓터치 트레일로 기록한 서킷 장면</h3>
                     <p>붉은·푸른 트레일을 통해 ‘속도를 그림으로 기록한다’는 ILLUSTRACE 철학을 나타낸 비주얼입니다.</p>
@@ -352,13 +344,12 @@
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
     <div class="contact-content">
         <p class="contact-message">"당신의 속도는 당신만의 색으로 기록됩니다."</p>
         <p>Email: <a href="mailto:changwan0315@naver.com">changwan0315@naver.com</a></p>
-        <p>Instagram: <a href="mailto:https://www.instagram.com/changwan5818/">https://www.instagram.com/changwan5818/</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/changwan5818/" target="_blank" rel="noopener">https://www.instagram.com/changwan5818/</a></p>
     </div>
 </section>
 
