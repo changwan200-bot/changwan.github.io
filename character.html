@@ -185,11 +185,11 @@
 
 <body>
 
-  <!-- NAV -->
+  <!-- NAV (수정: Home/Introduce를 index 섹션 앵커로 통일) -->
   <nav id="top-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="introduce.html">Introduce</a></li>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">Introduce</a></li>
       <li><a href="slogan.html">Slogan</a></li>
       <li><a href="character.html">Character</a></li>
     </ul>
@@ -288,9 +288,13 @@
       <h2 class="section-title">캐릭터 비주얼 갤러리</h2>
 
       <div class="gallery-grid">
-        <!-- ✅ project2 추가 (파일명은 네 폴더에 맞춰 유지/수정 가능) -->
+        <!-- 수정: project2 확장자/파일명 미스 대비 onerror 추가 -->
         <div class="gallery-item">
-          <img src="images/project2.jpg" alt="프로젝트 02" />
+          <img
+            src="images/project2.jpg"
+            alt="프로젝트 02"
+            onerror="this.onerror=null; this.src='images/project2.png';"
+          />
           <div class="gallery-caption">PROJECT – 02</div>
         </div>
 
@@ -314,7 +318,6 @@
           <div class="gallery-caption">POSE STUDY – 03</div>
         </div>
 
-        <!-- 필요하면 6번째 자리 추가 -->
         <div class="gallery-item">
           <img src="images/project13.png" alt="추가 비주얼" />
           <div class="gallery-caption">EXTRA – VISUAL</div>
@@ -322,11 +325,11 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (수정: Home/Introduce 링크 통일) -->
     <div class="bottom-nav">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="introduce.html">Introduce</a></li>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">Introduce</a></li>
         <li><a href="slogan.html">Slogan</a></li>
         <li><a href="character.html">Character</a></li>
       </ul>
