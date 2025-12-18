@@ -21,9 +21,10 @@
 
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
+    button { border: none; background: none; padding: 0; cursor: pointer; }
 
     /* ===========================
-       NAVIGATION (오른쪽 정렬)
+       NAV
     ============================ */
     nav {
       position: fixed;
@@ -31,59 +32,29 @@
       z-index: 1000;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
       padding: 16px 5vw;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      color: #ffffff;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      color: #fff;
+      transition: background-color 0.3s;
     }
-
     nav ul { list-style: none; display: flex; gap: 32px; }
-    nav a { color: inherit; font-weight: 400; }
-    nav a:hover { opacity: 0.7; }
-    .nav-solid { background-color: rgba(0, 0, 0, 0.9); }
+    .nav-solid { background-color: rgba(0,0,0,0.9); }
 
     /* ===========================
        HERO
     ============================ */
     .hero {
-      position: relative;
-      width: 100%;
       height: 420px;
-      background-image: url("images/project13.png");
-      background-position: center;
-      background-size: cover;
+      background: url("images/project13.png") center/cover;
+      position: relative;
     }
-
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.1));
+      background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.1));
     }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      height: 100%;
-      padding: 120px 6vw 40px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 40px;
-      color: #ffffff;
-    }
-
-    .hero-title-block { max-width: 520px; }
-    .hero-eyebrow { font-size: 13px; opacity: 0.8; letter-spacing: 0.18em; margin-bottom: 10px; }
-    .hero-title { font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 14px; }
-    .hero-sub { font-size: 14px; opacity: 0.88; }
-    .hero-meta { font-size: 13px; text-align: right; opacity: 0.9; }
 
     /* ===========================
-       MAIN LAYOUT
+       MAIN
     ============================ */
     .page-wrap {
       max-width: 1100px;
@@ -95,42 +66,6 @@
     .section-title { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
 
     /* ===========================
-       PROFILE AREA
-    ============================ */
-    .profile-layout {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      gap: 40px;
-    }
-
-    .profile-image-wrap {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    }
-
-    .profile-text-block p + p { margin-top: 10px; }
-
-    .profile-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px 24px;
-      margin-top: 24px;
-    }
-
-    .meta-label { font-size: 12px; opacity: 0.6; letter-spacing: 0.18em; }
-    .meta-value { font-weight: 500; }
-
-    /* ===========================
-       KEYWORDS / STATES
-    ============================ */
-    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .pill { padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; font-size: 12px; }
-
-    .state-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .state-block-title { font-weight: 600; margin-bottom: 6px; font-size: 14px; }
-
-    /* ===========================
        GALLERY
     ============================ */
     .gallery-grid {
@@ -140,13 +75,12 @@
     }
 
     .gallery-item {
+      position: relative;
       border-radius: 12px;
       overflow: hidden;
-      background-color: #f5f5f5;
-      position: relative;
+      background: #f5f5f5;
     }
 
-    /* ★ 핵심: 비율 다른 이미지 크기 통일 */
     .gallery-item img {
       width: 100%;
       height: 260px;
@@ -160,190 +94,150 @@
       background: rgba(0,0,0,0.65);
       padding: 4px 10px;
       font-size: 11px;
-      color: white;
+      color: #fff;
       border-radius: 999px;
     }
 
-    @media (max-width: 900px) {
-      .state-grid { grid-template-columns: 1fr; }
-      .profile-layout { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    /* ===========================
+       VIDEO MODAL
+    ============================ */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
     }
 
+    .video-modal.active { display: flex; }
+
+    .video-wrap {
+      position: relative;
+      width: min(90vw, 960px);
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    .video-close:hover { opacity: 1; }
+
+    @media (max-width: 900px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 520px) {
       .gallery-grid { grid-template-columns: 1fr; }
     }
-
-    /* ===========================
-       FOOTER
-    ============================ */
-    .bottom-nav { border-top: 1px solid #e0e0e0; padding: 18px 0; text-align: center; }
-    .bottom-nav ul { display: inline-flex; gap: 28px; list-style: none; }
-    footer { text-align: center; font-size: 12px; color: #777; padding: 20px 0 40px; }
   </style>
 </head>
 
 <body>
 
-  <!-- NAV (수정: Home/Introduce를 index 섹션 앵커로 통일) -->
-  <nav id="top-nav">
-    <ul>
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="index.html#about">Introduce</a></li>
-      <li><a href="slogan.html">Slogan</a></li>
-      <li><a href="character.html">Character</a></li>
-    </ul>
-  </nav>
+<nav id="top-nav">
+  <ul>
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">Introduce</a></li>
+    <li><a href="slogan.html">Slogan</a></li>
+    <li><a href="character.html">Character</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <div class="hero-title-block">
-        <div class="hero-eyebrow">ILLUSTRACE CHARACTER</div>
-        <h1 class="hero-title">나는 말보단 속도로 내 마음을 말해요</h1>
-        <p class="hero-sub">"초무"라는 캐릭터는 일상에선 조용하지만 트랙에서는 집중력이 폭발하는 캐릭터입니다.</p>
+<header class="hero">
+  <div class="hero-overlay"></div>
+</header>
+
+<main class="page-wrap">
+
+  <section class="section">
+    <h2 class="section-title">캐릭터 비주얼 갤러리</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/project9.png" alt="">
+        <div class="gallery-caption">POSE STUDY – 01</div>
       </div>
 
-      <div class="hero-meta">
-        <div><span class="label">NAME</span> ILLUSTRACE CAT</div>
-        <div><span class="label">ROLE</span> DRIVER · RECORDER</div>
-        <div><span class="label">MODE</span> QUIET / RACE FOCUS</div>
+      <div class="gallery-item">
+        <img src="images/project10.png" alt="">
+        <div class="gallery-caption">POSE STUDY – 02</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/project11.png" alt="">
+        <div class="gallery-caption">POSE STUDY – 03</div>
+      </div>
+
+      <!-- ★ 클릭 시 영상 재생 -->
+      <div class="gallery-item">
+        <button id="openVideo">
+          <img src="images/project15.jpg" alt="Pit Stop">
+        </button>
+        <div class="gallery-caption">RACE MODE – PIT STOP</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/project06.jpg" alt="">
+        <div class="gallery-caption">RACE MODE – FRONT</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/project16.jpg" alt="">
+        <div class="gallery-caption">RACE MODE – CONFERENCE</div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- MAIN -->
-  <main class="page-wrap">
+</main>
 
-    <!-- PROFILE -->
-    <section class="section">
-      <h2 class="section-title">캐릭터 설정</h2>
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal">
+  <div class="video-wrap">
+    <div class="video-close" id="closeVideo">✕ Close</div>
+    <video id="pitStopVideo" src="videos/pit-stop-video.mp4" controls></video>
+  </div>
+</div>
 
-      <div class="profile-layout">
-        <div class="profile-image-wrap">
-          <img src="images/profile.jpg" alt="ILLUSTRACE 캐릭터 프로필" />
-        </div>
+<script>
+  const nav = document.getElementById('top-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('nav-solid', window.scrollY > 40);
+  });
 
-        <div class="profile-text-block">
-          <p>
-            ILLUSTRACE의 메인 캐릭터는 조용한 성격의 레이서입니다.<br />
-            헬멧을 착용하는 순간, 표정이 날카롭게 바뀌며, 속도를 예술처럼
-            기록합니다.
-          </p>
+  const openBtn = document.getElementById('openVideo');
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('pitStopVideo');
+  const closeBtn = document.getElementById('closeVideo');
 
-          <div class="profile-meta-grid">
-            <div>
-              <div class="meta-label">SPECIES</div>
-              <div class="meta-value">Wolf · SD Style</div>
-            </div>
-            <div>
-              <div class="meta-label">MOOD</div>
-              <div class="meta-value">Quiet · Focused · Dual</div>
-            </div>
-            <div>
-              <div class="meta-label">SIGNATURE</div>
-              <div class="meta-value">Folded Left Ear</div>
-            </div>
-            <div>
-              <div class="meta-label">ROLE IN BRAND</div>
-              <div class="meta-value">Racing Avatar & Narrator</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  openBtn.addEventListener('click', () => {
+    modal.classList.add('active');
+    video.play();
+  });
 
-    <!-- VISUAL STATES -->
-    <section class="section">
-      <h2 class="section-title">비주얼 키워드 / 상태</h2>
+  closeBtn.addEventListener('click', closeVideo);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeVideo();
+  });
 
-      <div class="pill-row">
-        <span class="pill">Pastel Blue</span>
-        <span class="pill">Signal Red (Race Mode)</span>
-        <span class="pill">Black & Silver Suit</span>
-        <span class="pill">Track Tail</span>
-        <span class="pill">Dual Personality</span>
-      </div>
-
-      <div class="state-grid">
-        <div>
-          <div class="state-block-title">01 · Daily Mode</div>
-          <p>부드럽고 차분한 파스텔 톤의 평상시 <br>안정감을 더한 분위기</p>
-        </div>
-        <div>
-          <div class="state-block-title">02 · Race Mode</div>
-          <p>헬멧을 착용하면 시야가 집중되고 
-             눈빛이 예리해집니다</p>
-        </div>
-        <div>
-          <div class="state-block-title">03 · Recording Mode</div>
-          <p>속도를 예술처럼 시각화하는 브랜드의 <br>상징적 모드 완성감 있는 미학</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="section">
-      <h2 class="section-title">캐릭터 비주얼 갤러리</h2>
-
-      <div class="gallery-grid">
-        <!-- 수정: project2 확장자/파일명 미스 대비 onerror 추가 -->
-        <div class="gallery-item">
-          <img src="images/project9.png" alt="포즈 연구 01" />
-          <div class="gallery-caption">POSE STUDY – 01</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/project10.png" alt="포즈 연구 02" />
-          <div class="gallery-caption">POSE STUDY – 02</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/project11.png" alt="포즈 연구 03" />
-          <div class="gallery-caption">POSE STUDY – 03</div>
-        </div>
-        <div class="gallery-item">
-          <img
-            src="images/project15.jpg"
-            alt="프로젝트 02"
-            onerror="this.onerror=null; this.src='images/project2.png';"
-          />
-          <div class="gallery-caption">RACE MODE - PIT STOP</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/project06.jpg" alt="레이스 모드 정면" />
-          <div class="gallery-caption">RACE MODE – FRONT</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/project16.jpg" alt="추가 비주얼" />
-          <div class="gallery-caption">RACE MODE - CONFERENCE</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER (수정: Home/Introduce 링크 통일) -->
-    <div class="bottom-nav">
-      <ul>
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#about">Introduce</a></li>
-        <li><a href="slogan.html">Slogan</a></li>
-        <li><a href="character.html">Character</a></li>
-      </ul>
-    </div>
-
-    <footer>© 2025 김창완. Powered by AI Portfolio Workshop.</footer>
-  </main>
-
-  <script>
-    const nav = document.getElementById('top-nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) nav.classList.add('nav-solid');
-      else nav.classList.remove('nav-solid');
-    });
-  </script>
+  function closeVideo() {
+    modal.classList.remove('active');
+    video.pause();
+    video.currentTime = 0;
+  }
+</script>
 
 </body>
 </html>
