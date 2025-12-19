@@ -20,16 +20,14 @@
         a { text-decoration: none; }
         img { max-width: 100%; height: auto; display: block; }
 
-        /* =====================================
-           NAVIGATION
-        ===================================== */
+        /* ================= NAV ================= */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             padding: 16px 5vw;
             backdrop-filter: blur(6px);
             transition: background-color 0.3s ease;
@@ -39,160 +37,75 @@
             font-size: 18px;
             font-weight: 700;
             letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #FFF;
+            color: #fff;
         }
-        .nav-logo span { opacity: 0.7; }
 
         nav ul {
             list-style: none;
             display: flex;
             gap: 28px;
         }
-        nav a { color: #FFF; font-size: 13px; letter-spacing: 1px; }
-        nav a:hover { opacity: 0.5; }
+
+        nav a { color: #fff; font-size: 13px; }
 
         .nav-solid {
-            background-color: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.9);
             border-bottom: 1px solid rgba(255,255,255,0.12);
         }
 
-        /* =====================================
-           HERO SECTION + RIGHT IMAGE
-        ===================================== */
+        /* ================= HERO ================= */
         .hero {
-            position: relative;
             height: 100vh;
-            width: 100%;
-            padding: 0 5vw;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            background-color: #000;
+            align-items: center;
+            padding: 0 5vw;
+            background: #000;
             color: #fff;
-            overflow: hidden;
         }
 
-        .hero-inner { max-width: 50%; z-index: 5; }
-
-        .hero-tag {
-            font-size: 16px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            opacity: 0.8;
-            margin-bottom: 18px;
-        }
+        .hero-inner { max-width: 50%; }
 
         .hero-title-main {
             font-size: 56px;
-            line-height: 1.2;
             font-weight: 800;
-            margin-bottom: 22px;
-        }
-
-        .hero-title-sub { font-size: 20px; opacity: 0.9; margin-bottom: 28px; }
-
-        .hero-body {
-            font-size: 16px;
-            line-height: 1.9;
-            opacity: 0.92;
-            max-width: 640px;
-            margin-bottom: 34px;
-        }
-
-        .hero-meta {
-            font-size: 13px;
-            letter-spacing: 3px;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons { display: flex; gap: 16px; }
-
-        .btn-hero {
-            padding: 14px 32px;
-            font-size: 14px;
-            letter-spacing: 1.7px;
-            text-transform: uppercase;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.3);
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        .btn-hero-primary { background: #FFF; color: #000; }
-        .btn-hero-primary:hover { background: #e5e5e5; transform: translateY(-2px); }
-
-        .btn-hero-secondary { color: #FFF; }
-        .btn-hero-secondary:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
-
-        .hero-note { margin-top: 20px; font-size: 13px; opacity: 0.7; }
-
-        .hero-visual {
-            width: 32%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            z-index: 3;
+            margin-bottom: 20px;
         }
 
         .hero-visual img {
-            max-height: 85%;
-            width: auto;
-            object-fit: contain;
+            max-height: 85vh;
         }
 
-        /* =====================================
-           COMMON SECTION LAYOUT
-        ===================================== */
+        /* ================= COMMON SECTION ================= */
         section:not(.hero) {
             max-width: 1400px;
             margin: 0 auto;
             padding: 120px 6vw;
         }
 
-        h2 { font-size: 48px; margin-bottom: 60px; text-align: center; }
-
-        /* =====================================
-           ABOUT
-        ===================================== */
-        .about-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 80px;
+        h2 {
+            font-size: 48px;
+            margin-bottom: 80px;
+            text-align: center;
         }
 
-        .about-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 3px solid #000;
-            object-fit: cover;
-        }
-
-        .about-text p {
-            font-size: 16px;
-            line-height: 1.9;
-            opacity: 0.9;
-        }
-
-        /* =====================================
-           PROJECTS
-        ===================================== */
+        /* ================= PROJECTS ================= */
+        /* ✅ 실제로 사용 */
         .projects-wrap {
             display: flex;
             flex-direction: column;
-            gap: 80px;
+            gap: 120px; /* ← 프로젝트 사이 여백 */
         }
 
-        .project-fullwrap { max-width: 1100px; margin: 0 auto; }
+        .project-fullwrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
         .project-banner {
             position: relative;
             width: 100%;
-            aspect-ratio: 16/9;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
             border-radius: 8px;
         }
@@ -201,45 +114,42 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
             transition: transform 0.4s ease;
-            transform: scale(1);
         }
-        .project-banner:hover img { transform: scale(1.03); }
 
-        /* ✅ project2만 “여백 때문에 작아 보이는” 문제 보정 */
-        .project-banner.project2 img {
-            transform: scale(1.12);         /* 필요하면 1.08~1.20 사이로 조절 */
-            object-position: center;
+        .project-banner:hover img {
+            transform: scale(1.03);
         }
+
+        /* project2 보정 */
+        .project-banner.project2 img {
+            transform: scale(1.12);
+        }
+
         .project-banner.project2:hover img {
             transform: scale(1.15);
         }
 
         .project-banner-info {
             position: absolute;
-            left: 6%; bottom: 12%;
+            left: 6%;
+            bottom: 12%;
             max-width: 60%;
-            color: #FFF;
-            text-shadow: 0px 2px 6px rgba(0,0,0,0.7);
-        }
-        .project-banner-info h3 { font-size: 26px; margin-bottom: 10px; }
-        .project-banner-info p { font-size: 14px; line-height: 1.8; }
-
-        /* =====================================
-           CONTACT
-        ===================================== */
-        .contact-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
+            color: #fff;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.7);
         }
 
-        .contact-message {
-            font-size: 24px;
-            margin-bottom: 50px;
+        .project-banner-info h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
         }
 
+        .project-banner-info p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ================= CONTACT ================= */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -251,7 +161,7 @@
 <body>
 
 <nav>
-    <div class="nav-logo">ILLUSTRACE <span>/ CHANGWAN KIM</span></div>
+    <div class="nav-logo">ILLUSTRACE</div>
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="introduce.html">Introduce</a></li>
@@ -261,107 +171,61 @@
 </nav>
 
 <section id="home" class="hero">
-
     <div class="hero-inner">
-        <p class="hero-tag"><strong>#ILLUSTRACE</strong> / SPEED AS ART</p>
-
-        <h1 class="hero-title-main">
-            속도를 예술로 기록하는<br>시각 디자이너, 김창완
-        </h1>
-
-        <p class="hero-title-sub">Racer & Visual Director based in Busan, Korea</p>
-
-        <p class="hero-body">
-            레이싱의 집중력과 일러스트의 섬세함을 결합해 움직임을 시각 언어로 번역합니다.
-            ILLUSTRACE는 속도의 순간들을 붓터치와 그래픽으로 기록하는 개인 레이싱 & 비주얼 프로젝트입니다.
-        </p>
-
-        <div class="hero-meta">
-            PORTFOLIO / BRANDING / ILLUSTRATION / RACING-INSPIRED VISUALS
-        </div>
-
-        <div class="hero-buttons">
-            <a href="#projects" class="btn-hero btn-hero-primary">VIEW PROJECTS</a>
-            <a href="#about" class="btn-hero btn-hero-secondary">ABOUT THE CREATOR</a>
-        </div>
-
-        <div class="hero-note">스크롤해서 ILLUSTRACE의 세계를 더 둘러보세요.</div>
+        <h1 class="hero-title-main">속도를 예술로 기록하는<br>시각 디자이너, 김창완</h1>
     </div>
-
     <div class="hero-visual">
-        <img src="images/background-profile2.jpg" alt="ILLUSTRACE Racing Portrait">
-    </div>
-</section>
-
-<section id="about">
-    <h2>About</h2>
-    <div class="about-content">
-        <img src="images/profile01.jpg" class="about-image" alt="profile">
-        <div class="about-text">
-            <p>조용한 겉모습 뒤 집중력으로 속도의 순간을 기록합니다.</p>
-            <p>레이싱의 정밀함과 일러스트 감성을 결합하여 움직임을 시각적 언어로 번역합니다.</p>
-            <p>예술과 퍼포먼스의 균형을 탐구하며 ILLUSTRACE 세계관을 확장합니다.</p>
-        </div>
+        <img src="images/background-profile2.jpg" alt="">
     </div>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
 
-<div class="project-fullwrap">
-  <!-- ✅ 여기만 project1 클래스 추가 -->
-  <div class="project-banner project2">
-    <img src="images/project1.jpg" alt="project1">
-    <div class="project-banner-info">
-      <h3>ILLUST x RACE : 감성과 속도의 결합</h3>
-      <p>붓의 질감과 레이스의 속도를 한 장면에 표현하며 ILLUST의 감성과 집중이 만나는 브랜드의 리듬을 전달합니다.</p>
-    </div>
-  </div>
-</div>
+    <!-- ✅ 여기 중요 -->
+    <div class="projects-wrap">
 
-<div class="project-fullwrap">
-  <!-- ✅ 여기만 project2 클래스 추가 -->
-  <div class="project-banner project2">
-    <img src="images/project2.png" alt="project2">
-    <div class="project-banner-info">
-      <h3>붓터치 속도감을 담은 레드·블루 패턴</h3>
-      <p>빨강·파랑의 거친 붓터치로 속도감과 에너지를 시각적으로 표현한 그래픽입니다.</p>
-    </div>
-  </div>
-</div>
+        <div class="project-fullwrap">
+            <div class="project-banner project2">
+                <img src="images/project1.jpg" alt="">
+                <div class="project-banner-info">
+                    <h3>ILLUST x RACE : 감성과 속도의 결합</h3>
+                    <p>붓의 질감과 레이스의 속도를 하나의 리듬으로 표현한 프로젝트</p>
+                </div>
+            </div>
+        </div>
 
-<div class="project-fullwrap">
-  <!-- ✅ 여기만 project03 클래스 추가 -->
-  <div class="project-banner project03">
-    <img src="images/project03.jpg" alt="project03">
-    <div class="project-banner-info">
-      <h3>붓터치 트레일로 기록한 서킷 장면</h3>
-      <p>붉은·푸른 트레일을 통해 ‘속도를 그림으로 기록한다’는 ILLUSTRACE 철학을 나타낸 비주얼입니다..</p>
-    </div>
-  </div>
-</div>
+        <div class="project-fullwrap">
+            <div class="project-banner project2">
+                <img src="images/project2.png" alt="">
+                <div class="project-banner-info">
+                    <h3>레드·블루 붓터치 패턴</h3>
+                    <p>속도감을 시각적으로 응축한 그래픽 패턴</p>
+                </div>
+            </div>
+        </div>
 
-    </div>
-</section>
+        <div class="project-fullwrap">
+            <div class="project-banner">
+                <img src="images/project03.jpg" alt="">
+                <div class="project-banner-info">
+                    <h3>서킷 트레일 비주얼</h3>
+                    <p>‘속도를 그림으로 기록한다’는 철학의 시각화</p>
+                </div>
+            </div>
+        </div>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-content">
-        <p class="contact-message">"당신의 속도는 당신만의 색으로 기록됩니다."</p>
-        <p>Email: <a href="mailto:changwan0315@naver.com">changwan0315@naver.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/changwan5818/" target="_blank" rel="noopener">https://www.instagram.com/changwan5818/</a></p>
     </div>
 </section>
 
 <footer>
-    © 2025 김창완. Powered by AI Portfolio Workshop.
+    © 2025 김창완
 </footer>
 
 <script>
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) nav.classList.add('nav-solid');
-        else nav.classList.remove('nav-solid');
+        nav.classList.toggle('nav-solid', window.scrollY > 40);
     });
 </script>
 
