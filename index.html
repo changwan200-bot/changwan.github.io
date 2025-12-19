@@ -207,14 +207,9 @@
         }
         .project-banner:hover img { transform: scale(1.03); }
 
-        /* ✅ project2만 “여백 때문에 작아 보이는” 문제 보정 */
-        .project-banner.project2 img {
-            transform: scale(1.12);         /* 필요하면 1.08~1.20 사이로 조절 */
-            object-position: center;
-        }
-        .project-banner.project2:hover img {
-            transform: scale(1.15);
-        }
+        /* ✅ project2 보정 (클래스명을 project2로 통일) */
+        .project-banner.project2 img { transform: scale(1.12); }
+        .project-banner.project2:hover img { transform: scale(1.15); }
 
         .project-banner-info {
             position: absolute;
@@ -254,9 +249,9 @@
     <div class="nav-logo">ILLUSTRACE <span>/ CHANGWAN KIM</span></div>
     <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="introduce.html">Introduce</a></li>
-        <li><a href="slogan.html">Slogan</a></li>
-        <li><a href="character.html">Character</a></li>
+        <li><a href="./introduce.html">Introduce</a></li>
+        <li><a href="./slogan.html">Slogan</a></li>
+        <li><a href="./character.html">Character</a></li>
     </ul>
 </nav>
 
@@ -308,7 +303,6 @@
 <section id="projects">
     <h2>Projects</h2>
 
-    <!-- ✅ 이 래퍼가 핵심 -->
     <div class="projects-wrap">
 
         <div class="project-fullwrap">
@@ -322,7 +316,8 @@
         </div>
 
         <div class="project-fullwrap">
-            <div class="project-banner project02">
+            <!-- ✅ project2로 클래스명 통일 -->
+            <div class="project-banner project2">
                 <img src="images/project02.jpg" alt="project02">
                 <div class="project-banner-info">
                     <h3>붓터치로 속도감을 담은 레드·블루 패턴</h3>
@@ -360,7 +355,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>
 
