@@ -146,7 +146,6 @@
       position: relative;
     }
 
-    /* ★ 핵심: 비율 다른 이미지 크기 통일 */
     .gallery-item img {
       width: 100%;
       height: 260px;
@@ -180,12 +179,63 @@
     .bottom-nav { border-top: 1px solid #e0e0e0; padding: 18px 0; text-align: center; }
     .bottom-nav ul { display: inline-flex; gap: 28px; list-style: none; }
     footer { text-align: center; font-size: 12px; color: #777; padding: 20px 0 40px; }
+
+    /* ===========================
+       VIDEO MODAL (추가)
+    ============================ */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      z-index: 2000;
+    }
+    .video-modal.is-open { display: block; }
+
+    .video-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+    }
+
+    .video-modal__panel {
+      position: relative;
+      max-width: 980px;
+      width: calc(100% - 24px);
+      margin: 80px auto 0;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+    }
+
+    .video-modal__panel video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .video-modal__close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 18px;
+    }
+    .video-modal__close:hover { background: rgba(255,255,255,0.22); }
+
+    /* 클릭 가능 UI 힌트 */
+    .gallery-item.js-video { cursor: pointer; }
   </style>
 </head>
 
 <body>
 
-  <!-- NAV (수정: Home/Introduce를 index 섹션 앵커로 통일) -->
   <nav id="top-nav">
     <ul>
       <li><a href="index.html#home">Home</a></li>
@@ -195,7 +245,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
@@ -213,10 +262,8 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="page-wrap">
 
-    <!-- PROFILE -->
     <section class="section">
       <h2 class="section-title">캐릭터 설정</h2>
 
@@ -254,7 +301,6 @@
       </div>
     </section>
 
-    <!-- VISUAL STATES -->
     <section class="section">
       <h2 class="section-title">비주얼 키워드 / 상태</h2>
 
@@ -283,12 +329,10 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section class="section">
       <h2 class="section-title">캐릭터 비주얼 갤러리</h2>
 
       <div class="gallery-grid">
-        <!-- 수정: project2 확장자/파일명 미스 대비 onerror 추가 -->
         <div class="gallery-item">
           <img src="images/project9.png" alt="포즈 연구 01" />
           <div class="gallery-caption">POSE STUDY – 01</div>
@@ -303,28 +347,31 @@
           <img src="images/project11.png" alt="포즈 연구 03" />
           <div class="gallery-caption">POSE STUDY – 03</div>
         </div>
-        <div class="gallery-item">
+
+        <!-- ✅ 클릭 시 video (project15) -->
+        <div class="gallery-item js-video" data-video="pit stop video">
           <img
             src="images/project15.jpg"
-            alt="프로젝트 02"
+            alt="RACE MODE - PIT STOP"
             onerror="this.onerror=null; this.src='images/project2.png';"
           />
           <div class="gallery-caption">RACE MODE - PIT STOP</div>
         </div>
 
-        <div class="gallery-item">
+        <!-- ✅ 클릭 시 video (project06) -->
+        <div class="gallery-item js-video" data-video="pit in video">
           <img src="images/project06.jpg" alt="레이스 모드 정면" />
           <div class="gallery-caption">RACE MODE – FRONT</div>
         </div>
 
-        <div class="gallery-item">
+        <!-- ✅ 클릭 시 video (project16) -->
+        <div class="gallery-item js-video" data-video="conference video">
           <img src="images/project16.jpg" alt="추가 비주얼" />
           <div class="gallery-caption">RACE MODE - CONFERENCE</div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER (수정: Home/Introduce 링크 통일) -->
     <div class="bottom-nav">
       <ul>
         <li><a href="index.html#home">Home</a></li>
@@ -337,11 +384,65 @@
     <footer>© 2025 김창완. Powered by AI Portfolio Workshop.</footer>
   </main>
 
+  <!-- ✅ VIDEO MODAL HTML (추가) -->
+  <div class="video-modal" id="videoModal" aria-hidden="true">
+    <div class="video-modal__backdrop" id="videoBackdrop"></div>
+
+    <div class="video-modal__panel" role="dialog" aria-modal="true" aria-label="Video player">
+      <button class="video-modal__close" id="videoClose" aria-label="Close video">✕</button>
+      <video id="videoPlayer" controls playsinline></video>
+    </div>
+  </div>
+
   <script>
     const nav = document.getElementById('top-nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) nav.classList.add('nav-solid');
       else nav.classList.remove('nav-solid');
+    });
+
+    // =========================
+    // VIDEO MODAL (추가)
+    // =========================
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('videoPlayer');
+    const closeBtn = document.getElementById('videoClose');
+    const backdrop = document.getElementById('videoBackdrop');
+
+    function openVideo(src) {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+
+      player.src = src;
+      player.currentTime = 0;
+
+      // 자동재생은 브라우저 정책으로 막힐 수 있어 예외 처리
+      player.play().catch(() => {});
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideo() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+
+      player.pause();
+      player.removeAttribute('src');
+      player.load();
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-item.js-video').forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.getAttribute('data-video');
+        if (src) openVideo(src);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeVideo);
+    backdrop.addEventListener('click', closeVideo);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeVideo();
     });
   </script>
 
