@@ -94,6 +94,14 @@
     .section { margin-bottom: 80px; }
     .section-title { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
 
+    /* ✅ 제목 옆 안내 문구 (추가) */
+    .gallery-note{
+      font-size: 14px;     /* 일반 글자 크기 */
+      font-weight: 400;
+      color: #666;
+      margin-left: 8px;
+    }
+
     /* ===========================
        PROFILE AREA
     ============================ */
@@ -245,7 +253,6 @@
       <li><a href="index.html#home">Home</a></li>
       <li><a href="index.html#about">Introduce</a></li>
       <li><a href="slogan.html">Slogan</a></li>
-      <!-- ✅ 현재 페이지에서는 리로드 방지 -->
       <li><a href="#" aria-current="page">Character</a></li>
     </ul>
   </nav>
@@ -271,7 +278,6 @@
   <!-- MAIN -->
   <main class="page-wrap">
 
-    <!-- PROFILE -->
     <section class="section">
       <h2 class="section-title">캐릭터 설정</h2>
 
@@ -309,7 +315,6 @@
       </div>
     </section>
 
-    <!-- VISUAL STATES -->
     <section class="section">
       <h2 class="section-title">비주얼 키워드 / 상태</h2>
 
@@ -340,7 +345,10 @@
 
     <!-- GALLERY -->
     <section class="section">
-      <h2 class="section-title">캐릭터 비주얼 갤러리</h2>
+      <h2 class="section-title">
+        캐릭터 비주얼 갤러리
+        <span class="gallery-note">(하단 이미지 3개를 클릭 시 영상이 재생됩니다.)</span>
+      </h2>
 
       <div class="gallery-grid">
         <div class="gallery-item">
@@ -358,40 +366,28 @@
           <div class="gallery-caption">POSE STUDY – 03</div>
         </div>
 
-        <!-- ✅ project15: 클릭 시 유튜브 모달 -->
-        <div class="gallery-item js-video"
-             data-youtube="https://www.youtube.com/embed/vYWUe-Y7034">
-          <img
-            src="images/project15.jpg"
-            alt="RACE MODE - PIT STOP"
-            onerror="this.onerror=null; this.src='images/project2.png';"
-          />
+        <div class="gallery-item js-video" data-youtube="https://www.youtube.com/embed/vYWUe-Y7034">
+          <img src="images/project15.jpg" alt="RACE MODE - PIT STOP" onerror="this.onerror=null; this.src='images/project2.png';" />
           <div class="gallery-caption">RACE MODE - PIT STOP</div>
         </div>
 
-        <!-- ✅ project06: 클릭 시 유튜브 모달 -->
-        <div class="gallery-item js-video"
-             data-youtube="https://www.youtube.com/embed/LpH9y1M4rvk">
+        <div class="gallery-item js-video" data-youtube="https://www.youtube.com/embed/LpH9y1M4rvk">
           <img src="images/project06.jpg" alt="레이스 모드 정면" />
           <div class="gallery-caption">RACE MODE – FRONT</div>
         </div>
 
-        <!-- ✅ project16: 클릭 시 유튜브 모달 -->
-        <div class="gallery-item js-video"
-             data-youtube="https://www.youtube.com/embed/3FpDoWNkbj4">
+        <div class="gallery-item js-video" data-youtube="https://www.youtube.com/embed/3FpDoWNkbj4">
           <img src="images/project16.jpg" alt="추가 비주얼" />
           <div class="gallery-caption">RACE MODE - CONFERENCE</div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <div class="bottom-nav">
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#about">Introduce</a></li>
         <li><a href="slogan.html">Slogan</a></li>
-        <!-- ✅ 현재 페이지에서는 리로드 방지 -->
         <li><a href="#" aria-current="page">Character</a></li>
       </ul>
     </div>
@@ -399,7 +395,7 @@
     <footer>© 2025 김창완. Powered by AI Portfolio Workshop.</footer>
   </main>
 
-  <!-- ✅ VIDEO MODAL (추가) -->
+  <!-- VIDEO MODAL -->
   <div class="video-modal" id="videoModal" aria-hidden="true">
     <div class="video-modal__backdrop" id="videoBackdrop"></div>
 
@@ -422,9 +418,6 @@
       else nav.classList.remove('nav-solid');
     });
 
-    // =========================
-    // YOUTUBE MODAL (추가)
-    // =========================
     const modal = document.getElementById('videoModal');
     const player = document.getElementById('youtubePlayer');
     const closeBtn = document.getElementById('videoClose');
