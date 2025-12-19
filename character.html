@@ -1,321 +1,455 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ILLUSTRACE 캐릭터 소개 페이지">
-    <title>ILLUSTRACE | Character</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ILLUSTRACE 캐릭터 소개 페이지" />
+  <title>ILLUSTRACE | Character</title>
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-            background: #0b0b0b;
-            color: #ffffff;
-            line-height: 1.7;
-        }
+  <style>
+    /* ===========================
+       RESET
+    ============================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; display: block; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.7;
+    }
 
-        /* NAV */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 6vw;
-            backdrop-filter: blur(6px);
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-        }
-        .nav-logo {
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        .nav-logo span { opacity: .7; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-        .nav-links a {
-            margin-left: 28px;
-            font-size: 13px;
-            letter-spacing: 1px;
-            opacity: .95;
-        }
-        .nav-links a:hover { opacity: .6; }
+    /* ===========================
+       NAVIGATION (오른쪽 정렬)
+    ============================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 16px 5vw;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        /* HERO */
-        .hero {
-            height: 58vh;
-            background: url("images/profile.jpg") center/cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            padding: 0 6vw 48px;
-            padding-top: 84px;
-        }
-        .hero::after{
-            content:"";
-            position:absolute; inset:0;
-            background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.10));
-        }
-        .hero-inner{
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-        .hero-kicker{
-            font-size: 14px;
-            letter-spacing: 4px;
-            opacity: .85;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .hero-title{
-            font-size: 44px;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 14px;
-        }
-        .hero-desc{
-            font-size: 16px;
-            opacity: .9;
-            line-height: 1.9;
-        }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav a { color: inherit; font-weight: 400; }
+    nav a:hover { opacity: 0.7; }
+    .nav-solid { background-color: rgba(0, 0, 0, 0.9); }
 
-        /* LAYOUT */
-        .wrap{
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 90px 6vw 120px;
-        }
+    /* ===========================
+       HERO
+    ============================ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      background-image: url("images/project00.png");
+      background-position: center;
+      background-size: cover;
+    }
 
-        .section-title{
-            font-size: 34px;
-            margin-bottom: 18px;
-            letter-spacing: -0.5px;
-        }
-        .section-sub{
-            font-size: 15px;
-            opacity: .75;
-            margin-bottom: 34px;
-        }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.1));
+    }
 
-        /* PROFILE GRID */
-        .profile-grid{
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 44px;
-            align-items: start;
-            margin-bottom: 90px;
-        }
-        .card{
-            border: 1px solid rgba(255,255,255,0.10);
-            border-radius: 10px;
-            overflow: hidden;
-            background: rgba(255,255,255,0.03);
-        }
-        .card-body{
-            padding: 22px 22px 26px;
-        }
-        .meta{
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: .7;
-            margin-bottom: 10px;
-        }
-        .card h3{
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-        .card p{
-            font-size: 15px;
-            opacity: .88;
-            line-height: 1.85;
-        }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 120px 6vw 40px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      color: #ffffff;
+    }
 
-        /* GALLERY */
-        .gallery-grid{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 18px;
-        }
-        .gallery-item{
-            position: relative;
-            aspect-ratio: 16/10;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.10);
-            background: rgba(255,255,255,0.02);
-        }
-        .gallery-item img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .35s ease;
-        }
-        .gallery-item:hover img{ transform: scale(1.04); }
+    .hero-title-block { max-width: 520px; }
+    .hero-eyebrow { font-size: 13px; opacity: 0.8; letter-spacing: 0.18em; margin-bottom: 10px; }
+    .hero-title { font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 14px; }
+    .hero-sub { font-size: 14px; opacity: 0.88; }
+    .hero-meta { font-size: 13px; text-align: right; opacity: 0.9; }
 
-        .gallery-caption{
-            position:absolute;
-            left: 12px;
-            bottom: 12px;
-            font-size: 12px;
-            letter-spacing: 1px;
-            opacity: .9;
-            text-shadow: 0 2px 10px rgba(0,0,0,.7);
-        }
+    /* ===========================
+       MAIN LAYOUT
+    ============================ */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 6vw 120px;
+    }
 
-        /* VIDEO THUMBS */
-        .video-grid{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 18px;
-        }
-        .video-thumb{
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.10);
-            background: rgba(255,255,255,0.02);
-            aspect-ratio: 16/10;
-            position: relative;
-        }
-        .video-thumb img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .35s ease;
-        }
-        .video-thumb:hover img{ transform: scale(1.04); }
-        .play-badge{
-            position:absolute;
-            right: 12px;
-            bottom: 12px;
-            font-size: 12px;
-            letter-spacing: 2px;
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: rgba(0,0,0,.55);
-            border: 1px solid rgba(255,255,255,.16);
-        }
+    .section { margin-bottom: 80px; }
+    .section-title { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
 
-        footer{
-            text-align:center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.12);
-            opacity: .75;
-            font-size: 13px;
-        }
+    /* ✅ 제목 옆 안내 문구 (추가) */
+    .gallery-note{
+      font-size: 14px;     /* 일반 글자 크기 */
+      font-weight: 400;
+      color: #666;
+      margin-left: 8px;
+    }
 
-        @media(max-width: 900px){
-            .profile-grid{ grid-template-columns: 1fr; }
-            .gallery-grid, .video-grid{ grid-template-columns: 1fr; }
-            .hero-title{ font-size: 34px; }
-        }
-    </style>
+    /* ===========================
+       PROFILE AREA
+    ============================ */
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 40px;
+    }
+
+    .profile-image-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .profile-text-block p + p { margin-top: 10px; }
+
+    .profile-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+      margin-top: 24px;
+    }
+
+    .meta-label { font-size: 12px; opacity: 0.6; letter-spacing: 0.18em; }
+    .meta-value { font-weight: 500; }
+
+    /* ===========================
+       KEYWORDS / STATES
+    ============================ */
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .pill { padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; font-size: 12px; }
+
+    .state-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .state-block-title { font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+
+    /* ===========================
+       GALLERY
+    ============================ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #f5f5f5;
+      position: relative;
+    }
+
+    /* ★ 핵심: 비율 다른 이미지 크기 통일 */
+    .gallery-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      background: rgba(0,0,0,0.65);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: white;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 900px) {
+      .state-grid { grid-template-columns: 1fr; }
+      .profile-layout { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===========================
+       FOOTER
+    ============================ */
+    .bottom-nav { border-top: 1px solid #e0e0e0; padding: 18px 0; text-align: center; }
+    .bottom-nav ul { display: inline-flex; gap: 28px; list-style: none; }
+    footer { text-align: center; font-size: 12px; color: #777; padding: 20px 0 40px; }
+
+    /* ===========================
+       VIDEO MODAL (추가)
+    ============================ */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      z-index: 2000;
+    }
+    .video-modal.is-open { display: block; }
+
+    .video-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+    }
+
+    .video-modal__panel {
+      position: relative;
+      max-width: 960px;
+      width: calc(100% - 24px);
+      margin: 80px auto 0;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+    }
+
+    .video-modal__panel iframe {
+      width: 100%;
+      height: 520px;
+      display: block;
+      border: 0;
+    }
+
+    .video-modal__close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.20);
+      color: #fff;
+      font-size: 18px;
+      line-height: 36px;
+    }
+    .video-modal__close:hover { background: rgba(255,255,255,0.28); }
+
+    /* 클릭 가능 UI 힌트 */
+    .gallery-item.js-video { cursor: pointer; }
+  </style>
 </head>
 
 <body>
 
-    <nav>
-        <div class="nav-logo">ILLUSTRACE <span>/ CHANGWAN KIM</span></div>
-        <div class="nav-links">
-            <a href="./index.html">Home</a>
-            <a href="./introduce.html">Introduce</a>
-            <a href="./slogan.html">Slogan</a>
-            <a href="./character.html">Character</a>
+  <!-- NAV -->
+  <nav id="top-nav">
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">Introduce</a></li>
+      <li><a href="slogan.html">Slogan</a></li>
+      <li><a href="#" aria-current="page">Character</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-title-block">
+        <div class="hero-eyebrow">ILLUSTRACE CHARACTER</div>
+        <h1 class="hero-title">나는 말보단 속도로 내 마음을 말해요</h1>
+        <p class="hero-sub">"초무"라는 캐릭터는 일상에선 조용하지만 트랙에서는 집중력이 폭발하는 캐릭터입니다.</p>
+      </div>
+
+      <div class="hero-meta">
+        <div><span class="label">NAME</span> ILLUSTRACE CAT</div>
+        <div><span class="label">ROLE</span> DRIVER · RECORDER</div>
+        <div><span class="label">MODE</span> QUIET / RACE FOCUS</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-wrap">
+
+    <section class="section">
+      <h2 class="section-title">캐릭터 설정</h2>
+
+      <div class="profile-layout">
+        <div class="profile-image-wrap">
+          <img src="images/profile.jpg" alt="ILLUSTRACE 캐릭터 프로필" />
         </div>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-inner">
-            <div class="hero-kicker">Character / Dual Mode</div>
-            <div class="hero-title">조용함 속에 날카로운 집중</div>
-            <div class="hero-desc">
-                평상시에는 차분한 톤으로, 트랙에서는 폭발적인 몰입으로 전환되는 ILLUSTRACE 캐릭터의 무드를 소개합니다.
+        <div class="profile-text-block">
+          <p>
+            ILLUSTRACE의 캐릭터인 "초무"는 조용한 성격의 레이서입니다.<br />
+            헬멧을 착용하는 순간, 표정이 바뀌며, 속도를 예술처럼 기록합니다.
+          </p>
+
+          <div class="profile-meta-grid">
+            <div>
+              <div class="meta-label">SPECIES</div>
+              <div class="meta-value">Wolf · SD Style</div>
             </div>
+            <div>
+              <div class="meta-label">MOOD</div>
+              <div class="meta-value">Quiet · Focused · Dual</div>
+            </div>
+            <div>
+              <div class="meta-label">SIGNATURE</div>
+              <div class="meta-value">Folded Left Ear</div>
+            </div>
+            <div>
+              <div class="meta-label">ROLE IN BRAND</div>
+              <div class="meta-value">Racing Avatar & Narrator</div>
+            </div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main class="wrap">
+    <section class="section">
+      <h2 class="section-title">비주얼 키워드 / 상태</h2>
 
-        <section class="profile-grid">
-            <div class="card">
-                <img src="images/profile.jpg" alt="character profile">
-                <div class="card-body">
-                    <div class="meta">Profile</div>
-                    <h3>ILLUSTRACE Character</h3>
-                    <p>
-                        캐릭터는 ‘정밀함(Precision)’과 ‘집중(Focus)’을 기반으로 움직입니다.<br>
-                        레이싱 수트·헬멧·트랙 라인은 브랜드의 핵심 상징이며, 속도의 순간을 시각적으로 기록하는 태도를 담고 있습니다.
-                    </p>
-                </div>
-            </div>
+      <div class="pill-row">
+        <span class="pill">Pastel Blue</span>
+        <span class="pill">Signal Red (Race Mode)</span>
+        <span class="pill">Black & Silver Suit</span>
+        <span class="pill">Track Tail</span>
+        <span class="pill">Dual Personality</span>
+      </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <div class="meta">Key Points</div>
-                    <h3>Design Keywords</h3>
-                    <p>
-                        • Calm → Race Mode 전환 구조<br>
-                        • Signal Red / Black / Metallic Silver 중심의 레이스 톤<br>
-                        • 트랙 라인 + 붓터치 결합으로 “Speed as Art” 시각화
-                    </p>
-                </div>
-            </div>
-        </section>
+      <div class="state-grid">
+        <div>
+          <div class="state-block-title">01 · Daily Mode</div>
+          <p>부드럽고 차분한 파스텔 톤의 평상시 <br>안정감을 더한 분위기</p>
+        </div>
+        <div>
+          <div class="state-block-title">02 · Race Mode</div>
+          <p>헬멧을 착용하면 시야가 집중되고 
+             <br>눈빛이 예리해집니다</p>
+        </div>
+        <div>
+          <div class="state-block-title">03 · Recording Mode</div>
+          <p>속도를 예술처럼 시각화하는 브랜드의 <br>상징적 모드 완성감 있는 미학</p>
+        </div>
+      </div>
+    </section>
 
-        <section style="margin-bottom:90px;">
-            <div class="section-title">캐릭터 비주얼 갤러리 <span style="font-size:15px; opacity:.75;">(하단 이미지 3개를 클릭 시 영상이 재생됩니다.)</span></div>
-            <div class="section-sub">브랜드의 캐릭터/팀 무드를 확장하는 장면을 모아둔 섹션입니다.</div>
+    <!-- GALLERY -->
+    <section class="section">
+      <h2 class="section-title">
+        캐릭터 비주얼 갤러리
+        <span class="gallery-note">(하단 이미지 3개를 클릭 시 영상이 재생됩니다.)</span>
+      </h2>
 
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/project06.jpg" alt="project06">
-                    <div class="gallery-caption">project06</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/project15.jpg" alt="project15">
-                    <div class="gallery-caption">project15</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/project16.jpg" alt="project16">
-                    <div class="gallery-caption">project16</div>
-                </div>
-            </div>
-        </section>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/project9.png" alt="포즈 연구 01" />
+          <div class="gallery-caption">POSE STUDY – 01</div>
+        </div>
 
-        <section>
-            <div class="section-title">Video Links</div>
-            <div class="section-sub">아래 썸네일을 클릭하면 유튜브 영상으로 이동합니다.</div>
+        <div class="gallery-item">
+          <img src="images/project10.png" alt="포즈 연구 02" />
+          <div class="gallery-caption">POSE STUDY – 02</div>
+        </div>
 
-            <div class="video-grid">
-                <a class="video-thumb" href="https://youtu.be/3FpDoWNkbj4" target="_blank" rel="noopener">
-                    <img src="images/project16.jpg" alt="project16 video">
-                    <div class="play-badge">PLAY</div>
-                </a>
+        <div class="gallery-item">
+          <img src="images/project11.png" alt="포즈 연구 03" />
+          <div class="gallery-caption">POSE STUDY – 03</div>
+        </div>
 
-                <a class="video-thumb" href="https://youtu.be/LpH9y1M4rvk" target="_blank" rel="noopener">
-                    <img src="images/project06.jpg" alt="project06 video">
-                    <div class="play-badge">PLAY</div>
-                </a>
+        <div class="gallery-item js-video" data-youtube="https://www.youtube.com/embed/vYWUe-Y7034">
+          <img src="images/project15.jpg" alt="RACE MODE - PIT STOP" onerror="this.onerror=null; this.src='images/project2.png';" />
+          <div class="gallery-caption">RACE MODE - PIT STOP</div>
+        </div>
 
-                <a class="video-thumb" href="https://youtu.be/vYWUe-Y7034" target="_blank" rel="noopener">
-                    <img src="images/project15.jpg" alt="project15 video">
-                    <div class="play-badge">PLAY</div>
-                </a>
-            </div>
-        </section>
+        <div class="gallery-item js-video" data-youtube="https://www.youtube.com/embed/LpH9y1M4rvk">
+          <img src="images/project06.jpg" alt="레이스 모드 정면" />
+          <div class="gallery-caption">RACE MODE – FRONT</div>
+        </div>
 
-    </main>
+        <div class="gallery-item js-video" data-youtube="https://www.youtube.com/embed/3FpDoWNkbj4">
+          <img src="images/project16.jpg" alt="추가 비주얼" />
+          <div class="gallery-caption">RACE MODE - CONFERENCE</div>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        © 2025 ILLUSTRACE. All Rights Reserved.
-    </footer>
+    <div class="bottom-nav">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">Introduce</a></li>
+        <li><a href="slogan.html">Slogan</a></li>
+        <li><a href="#" aria-current="page">Character</a></li>
+      </ul>
+    </div>
+
+    <footer>© 2025 김창완. Powered by AI Portfolio Workshop.</footer>
+  </main>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="videoModal" aria-hidden="true">
+    <div class="video-modal__backdrop" id="videoBackdrop"></div>
+
+    <div class="video-modal__panel" role="dialog" aria-modal="true" aria-label="YouTube player">
+      <button class="video-modal__close" id="videoClose" aria-label="Close">✕</button>
+      <iframe
+        id="youtubePlayer"
+        src=""
+        title="YouTube video player"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('top-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) nav.classList.add('nav-solid');
+      else nav.classList.remove('nav-solid');
+    });
+
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('youtubePlayer');
+    const closeBtn = document.getElementById('videoClose');
+    const backdrop = document.getElementById('videoBackdrop');
+
+    function openYoutube(src) {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      player.src = src + '?autoplay=1';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeYoutube() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      player.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-item.js-video').forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.getAttribute('data-youtube');
+        if (src) openYoutube(src);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeYoutube);
+    backdrop.addEventListener('click', closeYoutube);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeYoutube();
+    });
+  </script>
 
 </body>
 </html>
